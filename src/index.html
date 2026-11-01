@@ -3,6 +3,7 @@
 <html lang="en">
   <head>
 <!--@include head-->
+    <script src="/boot.js"></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -14,11 +15,15 @@
       }
     </script>
   </head>
-  <body>
+  <body class="home">
 <!--@include header-->
 
+    <div class="cine-bars" aria-hidden="true"><i></i><i></i></div>
+    <div class="cine-curtain" aria-hidden="true"></div>
+    <div class="hud mono" data-hud aria-hidden="true"><span class="hud__rec">REC</span><span data-hud-time>00:00:00</span><span class="hud__scene" data-hud-scene>SCENE 1/7 · COLD OPEN</span></div>
+
     <main id="content">
-      <section class="hero" id="top" aria-labelledby="hero-title">
+      <section class="hero" id="top" data-scene="Cold open" aria-labelledby="hero-title">
         <div class="hero__inner shell">
           <p class="hero__kicker mono">Music label <span>·</span> Kerala <span>·</span> Est. underground</p>
           <div class="hero__image" aria-hidden="true"><picture><source type="image/avif" srcset="/assets/hero-640.avif 640w, /assets/hero-1254.avif 1254w" sizes="100vw" /><source type="image/webp" srcset="/assets/hero-640.webp 640w, /assets/hero-1254.webp 1254w" sizes="100vw" /><img src="/assets/hero-1254.webp" width="1254" height="1254" fetchpriority="high" decoding="async" alt="" /></picture></div>
@@ -36,12 +41,20 @@
         <div class="hero__rail mono" aria-hidden="true"><span>O'FLOW</span><span>ORIGINAL VOICES</span><span>BUILT DIFFERENT</span><span>KERALA / INDIA</span></div>
       </section>
 
-      <section class="manifesto section section--paper section--doodle" id="label" aria-labelledby="manifesto-title">
+      <section class="chapter" data-scene="Chapter one" aria-hidden="true">
+        <div class="chapter__frame shell">
+          <p class="chapter__kicker mono" data-reveal="cut">Chapter one</p>
+          <p class="chapter__title" data-reveal="cut">Street<span>.</span></p>
+          <p class="chapter__sub serif" data-reveal="cut">Before there was a stage.</p>
+        </div>
+      </section>
+
+      <section class="manifesto section section--paper section--doodle" id="label" data-scene="Manifesto" aria-labelledby="manifesto-title">
         <div class="shell">
           <div class="section-kicker mono">01 / Manifesto</div>
           <span class="section-doodle section-doodle--scribble" aria-hidden="true"></span>
           <div class="manifesto__heading" data-reveal>
-            <h2 id="manifesto-title">Before there was a stage,<br />there was <em>street.</em></h2>
+            <h2 id="manifesto-title" data-reveal="split">Before there was a stage,<br />there was <em>street.</em></h2>
             <div class="manifesto__copy serif">
               <p>Corners, bus stops, rooftops and riverbanks. Ochayoli exists to amplify voices that were already loud — the ones raised in Malayalam, rooted in place and built without permission.</p>
               <p>Different voices. One restless spirit. Music that refuses to stay in its lane.</p>
@@ -50,11 +63,11 @@
         </div>
       </section>
 
-      <section class="collective section section--doodle" id="oflow" aria-labelledby="collective-title">
+      <section class="collective section section--doodle" id="oflow" data-scene="The crew" aria-labelledby="collective-title">
         <div class="shell collective__grid" data-reveal>
           <div>
             <p class="section-kicker mono section-kicker--lime">02 / The collective</p>
-            <h2 id="collective-title">O'Flow</h2>
+            <h2 id="collective-title" data-reveal="split">O'Flow</h2>
             <span class="highlight mono">The sound of what's next</span>
             <span class="section-doodle section-doodle--orbit" aria-hidden="true"></span>
           </div>
@@ -65,10 +78,10 @@
         </div>
       </section>
 
-      <section class="releases section section--paper section--doodle" id="music" aria-labelledby="releases-title">
+      <section class="releases section section--paper section--doodle" id="music" data-scene="Releases" aria-labelledby="releases-title">
         <div class="shell">
           <div class="section-bar">
-            <h2 id="releases-title">Releases</h2>
+            <h2 id="releases-title" data-reveal="split">Releases</h2>
             <span class="section-number mono">03</span>
           </div>
           <span class="section-doodle section-doodle--arrows" aria-hidden="true"></span>
@@ -82,12 +95,12 @@
 
 <!--@render events-->
 
-      <section class="connect section section--paper section--doodle" id="connect" aria-labelledby="connect-title">
+      <section class="connect section section--paper section--doodle" id="connect" data-scene="End credits" aria-labelledby="connect-title">
         <div class="shell connect__grid" data-reveal>
           <div>
             <p class="section-kicker mono">05 / Contact</p>
             <span class="section-doodle section-doodle--burst" aria-hidden="true"></span>
-            <h2 id="connect-title">Make some<br /><em>noise.</em></h2>
+            <h2 id="connect-title" data-reveal="split">Make some<br /><em>noise.</em></h2>
             <p class="connect__copy serif">For artist collaborations, live bookings, creative partnerships, and all things music — start the conversation.</p>
             <p class="connect__note mono">Messages are forwarded to {{site.email}}. Please do not include sensitive information.</p>
           </div>

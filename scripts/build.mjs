@@ -14,7 +14,7 @@ const SRC = 'src';
 const OUT = 'dist';
 
 // Files in src/ that are not copied verbatim.
-const HASHED = ['styles.css', 'script.js', 'store.js'];
+const HASHED = ['styles.css', 'script.js', 'store.js', 'boot.js'];
 const HERO_SRC = 'assets/ochayoli-hero-abstract.webp';
 const NOT_COPIED = new Set([...HASHED, HERO_SRC]);
 
@@ -98,7 +98,7 @@ report.push(['hero image (served WebP, 1254w)', heroBefore, heroAfter]);
 //    to the hashed filenames in every HTML file.
 const content = await loadContent();
 const templates = await loadTemplates();
-const refPattern = /(href|src)="\/?(styles\.css|script\.js|store\.js)"/g;
+const refPattern = /(href|src)="\/?(styles\.css|script\.js|store\.js|boot\.js)"/g;
 let rewritten = 0;
 for (const file of (await walk(OUT)).filter((f) => f.endsWith('.html'))) {
   const html = await renderHtml(await readFile(file, 'utf8'), content, templates);

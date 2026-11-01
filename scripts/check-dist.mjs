@@ -29,7 +29,7 @@ for (const file of files.map(rel)) {
 
 // 2. Every local reference in HTML and CSS must resolve to a file in dist.
 function localTarget(from, ref) {
-  if (!ref || /^(https?:|mailto:|tel:|data:|#|javascript:)/i.test(ref)) return null;
+  if (!ref || /^(https?:|mailto:|tel:|data:|#|%23|javascript:)/i.test(ref)) return null;
   const clean = ref.split('#')[0].split('?')[0];
   if (!clean) return null;
   return clean.startsWith('/') ? path.join(OUT, clean) : path.join(path.dirname(from), clean);
@@ -64,7 +64,7 @@ for (const file of files.filter((f) => f.endsWith('.css'))) {
 
 // 3. Hashed assets present, commerce pages not indexable, deploy essentials there.
 const names = files.map(rel);
-for (const pattern of [/^styles\.[0-9a-f]{10}\.css$/, /^script\.[0-9a-f]{10}\.js$/, /^store\.[0-9a-f]{10}\.js$/]) {
+for (const pattern of [/^styles\.[0-9a-f]{10}\.css$/, /^script\.[0-9a-f]{10}\.js$/, /^store\.[0-9a-f]{10}\.js$/, /^boot\.[0-9a-f]{10}\.js$/]) {
   if (!names.some((name) => pattern.test(name))) fail(`missing hashed asset matching ${pattern}`);
 }
 for (const required of ['index.html', '404.html', '.htaccess', 'contact.php', 'robots.txt', 'sitemap.xml', 'og-poster.png', 'favicon.svg', 'lib/.htaccess']) {

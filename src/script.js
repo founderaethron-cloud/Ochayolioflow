@@ -4,8 +4,12 @@ import { initNav } from './js/nav.js';
 import { initReleases } from './js/releases.js';
 import { initContactForm } from './js/contact-form.js';
 import { initReveal } from './js/reveal.js';
+import { initHero } from './js/hero.js';
+import { initHud } from './js/hud.js';
 
 initNav();
 initReleases();
 initContactForm();
 initReveal();
+initHero();
+initHud();

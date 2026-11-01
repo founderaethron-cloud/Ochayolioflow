@@ -85,12 +85,12 @@ const generators = {
         return `            <a class="booking__option" href="${href}"><span class="booking__label">${esc(o.label)}</span><span class="booking__detail mono">${esc(o.detail)}</span><span class="booking__go mono" aria-hidden="true">Enquire ↗</span></a>`;
       })
       .join('\n');
-    return `      <section class="events section" id="events" aria-labelledby="events-title">
+    return `      <section class="events section" id="events" data-scene="Events" aria-labelledby="events-title">
         <div class="shell">
-          <div class="section-bar"><h2 id="events-title">Events</h2><span class="section-number mono">04</span></div>
+          <div class="section-bar"><h2 id="events-title" data-reveal="split">Events</h2><span class="section-number mono">04</span></div>
 ${rows}
           <div class="booking" id="book" data-reveal>
-            <h3 class="booking__heading">${esc(b.heading)}</h3>
+            <h3 class="booking__heading" data-reveal="split">${esc(b.heading)}</h3>
             <p class="booking__intro serif">${esc(b.intro)}</p>
             <div class="booking__grid">
 ${options}
