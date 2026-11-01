@@ -24,6 +24,11 @@
       "section": "events"
     },
     {
+      "label": "Workshops",
+      "href": "/#workshops",
+      "section": "workshops"
+    },
+    {
       "label": "Auditions",
       "href": "/auditions/"
     },
@@ -76,7 +81,16 @@
       "note": "A selected track reference from the O'Flow curated set. Official release metadata to be added."
     }
   ],
-  "events": [],
+  "events": [
+    {
+      "id": "alappey-backwater-blackout",
+      "title": "Backwater Blackout",
+      "city": "Alappuzha (Alappey), Kerala",
+      "status": "soon",
+      "dateLabel": "Date to be announced",
+      "note": "Working title. Venue, line-up and tickets to be confirmed."
+    }
+  ],
   "auditions": {
     "open": false,
     "status": "Auditions are not open yet.",
@@ -90,6 +104,10 @@
     {
       "value": "booking",
       "label": "Live booking"
+    },
+    {
+      "value": "workshops",
+      "label": "Workshops"
     },
     {
       "value": "partnership",
@@ -136,7 +154,30 @@
         "detail": "Occasion, date, city, format.",
         "prefill": "Private or brand event enquiry.\nOccasion and city:\nDate:\nFormat:\nWhat you have in mind:"
       }
-    ]
+    ],
+    "formats": {
+      "heading": "Choose your Ochayoli",
+      "options": [
+        {
+          "id": "underground",
+          "label": "Ochayoli Underground",
+          "detail": "Builds the culture.",
+          "prefill": "Ochayoli Underground enquiry.\nCity:\nDate:\nWhat you have in mind:"
+        },
+        {
+          "id": "sessions",
+          "label": "Ochayoli Sessions",
+          "detail": "Develops the art.",
+          "prefill": "Ochayoli Sessions enquiry.\nCity:\nDate:\nWhat you have in mind:"
+        },
+        {
+          "id": "live",
+          "label": "Ochayoli Live",
+          "detail": "Brings the movement to a larger audience.",
+          "prefill": "Ochayoli Live enquiry.\nCity:\nDate:\nExpected crowd:\nWhat you have in mind:"
+        }
+      ]
+    }
   },
   "artists": [
     {
@@ -151,5 +192,11 @@
       "name": "VAnur",
       "spotify": "https://open.spotify.com/artist/0FJuKBLYkobc20C8WcJHeh"
     }
-  ]
+  ],
+  "workshops": {
+    "heading": "Workshops",
+    "status": "Coming soon",
+    "intro": "Workshops are being planned. Topics, mentors, dates and fees are not announced yet. Tell us what you would want to learn and we will keep you posted.",
+    "prefill": "Workshops interest.\nWhat I want to learn:\nCity:\nI am a: (artist / producer / student / other)"
+  }
 }

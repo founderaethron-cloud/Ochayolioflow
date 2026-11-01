@@ -78,14 +78,15 @@ const generators = {
     const rows = c.events.length
       ? c.events
           .map((e, i) => {
-            const meta = esc([e.date, e.venue, e.city].filter(Boolean).join(' · '));
+            const meta = esc([e.date || e.dateLabel, e.venue, e.city].filter(Boolean).join(' · '));
+            const badge = e.status === 'soon' ? '<span class="event-row__badge">Coming soon</span>' : '';
             const action = e.ticketUrl
               ? `<a class="event-row__action mono" href="${esc(e.ticketUrl)}" rel="noopener" target="_blank">Tickets <span aria-hidden="true">↗</span></a>`
-              : `<a class="event-row__action mono" href="/?topic=booking&amp;message=${encodeURIComponent(`Question about: ${e.title}`)}#connect">Ask about this</a>`;
-            return `          <div class="event-row" data-reveal>
+              : `<a class="event-row__action mono" href="/?topic=${e.status === 'soon' ? 'other' : 'booking'}&amp;message=${encodeURIComponent(e.status === 'soon' ? `Keep me posted about: ${e.title}` : `Question about: ${e.title}`)}#connect">${e.status === 'soon' ? 'Get updates' : 'Ask about this'}</a>`;
+            return `          <div class="event-row${e.status === 'soon' ? ' event-row--soon' : ''}" data-reveal>
             <span class="event-row__number mono">${String(i + 1).padStart(3, '0')}</span>
             <h3>${esc(e.title)}</h3>
-            <p class="mono">${meta}</p>
+            <p class="mono">${badge}${meta}</p>
             ${action}
           </div>`;
           })
@@ -102,6 +103,14 @@ const generators = {
         return `            <a class="booking__option" href="${href}"><span class="booking__label">${esc(o.label)}</span><span class="booking__detail mono">${esc(o.detail)}</span><span class="booking__go mono" aria-hidden="true">Enquire ↗</span></a>`;
       })
       .join('\n');
+    const f = b.formats;
+    const formats = f
+      ? `            <h4 class="booking__sub mono">${esc(f.heading)}</h4>
+            <div class="booking__grid booking__grid--formats">
+${f.options.map((o) => `              <a class="booking__option booking__option--format" href="/?topic=booking&amp;message=${encodeURIComponent(o.prefill)}#connect"><span class="booking__label">${esc(o.label)}</span><span class="booking__tag serif">${esc(o.detail)}</span><span class="booking__go mono" aria-hidden="true">Enquire ↗</span></a>`).join('\n')}
+            </div>
+            <h4 class="booking__sub mono">Or tell us the occasion</h4>`
+      : '';
     return `      <section class="events section" id="events" data-scene="Events" aria-labelledby="events-title">
         <div class="shell">
           <div class="section-bar"><h2 id="events-title" data-reveal="split">Events</h2><span class="section-number mono">04</span></div>
@@ -109,9 +118,25 @@ ${rows}
           <div class="booking" id="book" data-reveal>
             <h3 class="booking__heading" data-reveal="split">${esc(b.heading)}</h3>
             <p class="booking__intro serif">${esc(b.intro)}</p>
+${formats}
             <div class="booking__grid">
 ${options}
             </div>
+          </div>
+        </div>
+      </section>`;
+  },
+
+  workshops: (c) => {
+    const w = c.workshops;
+    if (!w) return '';
+    return `      <section class="workshops section section--paper" id="workshops" data-scene="Workshops" aria-labelledby="workshops-title">
+        <div class="shell">
+          <div class="section-bar"><h2 id="workshops-title" data-reveal="split">${esc(w.heading)}</h2><span class="section-number mono">05</span></div>
+          <div class="workshops__card" data-reveal>
+            <span class="workshops__badge mono">${esc(w.status)}</span>
+            <p class="workshops__intro serif">${esc(w.intro)}</p>
+            <a class="workshops__cta mono" href="/?topic=workshops&amp;message=${encodeURIComponent(w.prefill)}#connect">Register your interest <span aria-hidden="true">↗</span></a>
           </div>
         </div>
       </section>`;

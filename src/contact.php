@@ -13,6 +13,7 @@ const ALLOWED_HOSTS = ['ochayoli.in', 'www.ochayoli.in'];
 const TOPICS = [
     'collaboration' => 'Artist collaboration',
     'booking' => 'Live booking',
+    'workshops' => 'Workshops',
     'partnership' => 'Creative partnership',
     'press' => 'Press',
     'auditions' => 'Auditions',

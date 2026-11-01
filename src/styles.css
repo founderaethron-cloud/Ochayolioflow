@@ -596,3 +596,20 @@ em { color: var(--rust); font-style: normal; }
 .water:not(.is-live) .water__glint { animation-play-state: paused; }
 @media (prefers-reduced-motion: reduce) { .water__glint { animation: none; opacity: .35; } }
 @media (max-width: 780px) { .water__reflect { filter: none; } }
+
+/* Coming-soon event, booking formats, workshops */
+.event-row__badge { display: inline-block; margin-right: .8rem; padding: .25rem .6rem; border: 1px solid var(--lime); color: var(--lime); font-size: .62rem; letter-spacing: .14em; }
+.booking__sub { margin: 3rem 0 1rem; color: var(--muted); font-size: .68rem; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; }
+.booking__grid--formats { grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); margin-bottom: 0; }
+.booking__option--format { min-height: 15rem; }
+.booking__option--format .booking__label { font-size: clamp(2.4rem, 3.4vw, 3.6rem); }
+.booking__tag { color: var(--paper); font-size: 1.35rem; font-style: italic; line-height: 1.05; }
+.booking__option--format:hover .booking__tag, .booking__option--format:focus-visible .booking__tag { color: var(--ink); }
+.workshops__card { display: grid; gap: 1.4rem; justify-items: start; margin-top: 3rem; padding: clamp(1.4rem, 3vw, 3rem); border: 1px dashed var(--ink); }
+.workshops__badge { padding: .3rem .7rem; background: var(--ink); color: var(--lime); font-size: .66rem; letter-spacing: .16em; text-transform: uppercase; }
+.workshops__intro { max-width: 40rem; margin: 0; font-size: clamp(1.4rem, 2.2vw, 2.2rem); line-height: 1.1; }
+.workshops__cta { color: var(--ink); font-size: .74rem; letter-spacing: .1em; text-transform: uppercase; border-bottom: 1px solid currentColor; }
+.workshops__cta:hover, .workshops__cta:focus-visible { color: var(--rust); }
+.event-row--soon { grid-template-columns: 6rem 1fr; row-gap: 1.4rem; }
+.event-row--soon h3, .event-row--soon p, .event-row--soon .event-row__action { grid-column: 2; text-align: left; justify-self: start; }
+@media (max-width: 780px) { .event-row--soon { grid-template-columns: 3rem 1fr; } }
