@@ -109,7 +109,7 @@ const generators = {
             <div class="booking__grid booking__grid--formats">
 ${f.options.map((o) => `              <a class="booking__option booking__option--format" href="/?topic=booking&amp;message=${encodeURIComponent(o.prefill)}#connect"><span class="booking__label">${esc(o.label)}</span><span class="booking__tag serif">${esc(o.detail)}</span><span class="booking__go mono" aria-hidden="true">Enquire ↗</span></a>`).join('\n')}
             </div>
-            <h4 class="booking__sub mono">Or tell us the occasion</h4>`
+${options ? '            <h4 class="booking__sub mono">Or tell us the occasion</h4>' : ''}`
       : '';
     return `      <section class="events section" id="events" data-scene="Events" aria-labelledby="events-title">
         <div class="shell">
@@ -118,10 +118,10 @@ ${rows}
           <div class="booking" id="book" data-reveal>
             <h3 class="booking__heading" data-reveal="split">${esc(b.heading)}</h3>
             <p class="booking__intro serif">${esc(b.intro)}</p>
-${formats}
+${formats}${options ? `
             <div class="booking__grid">
 ${options}
-            </div>
+            </div>` : ''}
           </div>
         </div>
       </section>`;

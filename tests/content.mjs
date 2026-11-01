@@ -40,8 +40,8 @@ for (const event of content.events) {
   assert.ok(event.title && (event.date || event.dateLabel), 'event needs title and a date or date label');
   if (event.ticketUrl) assert.equal(new URL(event.ticketUrl).protocol, 'https:', 'ticket link must be https');
 }
-assert.ok(content.booking.options.length > 0, 'booking options required');
-for (const o of content.booking.options) assert.ok(o.id && o.label && o.prefill, 'booking option needs id, label, prefill');
+assert.ok(content.booking.formats.options.length === 3, 'three booking formats required');
+for (const o of [...content.booking.formats.options, ...content.booking.options]) assert.ok(o.id && o.label && o.prefill, 'booking option needs id, label, prefill');
 for (const item of content.nav) assert.ok(item.label && item.href, 'nav item needs label and href');
 assert.ok(content.contactTopics.length > 0, 'contact topics required');
 
@@ -60,12 +60,13 @@ assert.match(home, /Date to be announced/);
 assert.match(home, /Coming soon/);
 assert.match(home, /id="workshops"/);
 assert.match(home, /Ochayoli Underground/);
+assert.doesNotMatch(home, /Club or live show|Festival enquiry|booking__grid"/);
 assert.match(home, /Brings the movement to a larger audience/);
 assert.match(home, /<option value="workshops">/);
 const empty = structuredClone(content);
 empty.events = [];
 assert.match(await renderHtml(await readFile('src/index.html', 'utf8'), empty, templates), /No dates yet/, 'empty state shows with no events');
-assert.match(home, /topic=booking&amp;message=Live%20show%20enquiry/, 'booking options link to the prefilled form');
+assert.match(home, /topic=booking&amp;message=Ochayoli%20Underground%20enquiry/, 'booking options link to the prefilled form');
 assert.match(home, /data-section="events"/);
 
 const withEvent = structuredClone(content);

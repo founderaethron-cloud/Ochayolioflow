@@ -129,32 +129,7 @@
   "booking": {
     "heading": "Book O'Flow",
     "intro": "Tell us what you have in mind. Every option opens the contact form with the topic filled in. No prices are listed; we reply with terms per request.",
-    "options": [
-      {
-        "id": "club",
-        "label": "Club or live show",
-        "detail": "Venue, date, city, expected crowd.",
-        "prefill": "Live show enquiry.\nVenue and city:\nDate:\nExpected crowd:\nWhat you have in mind:"
-      },
-      {
-        "id": "festival",
-        "label": "Festival",
-        "detail": "Festival name, dates, slot length.",
-        "prefill": "Festival enquiry.\nFestival name and city:\nDates:\nSlot length:\nWhat you have in mind:"
-      },
-      {
-        "id": "college",
-        "label": "College or cultural event",
-        "detail": "Institution, date, audience size.",
-        "prefill": "College or cultural event enquiry.\nInstitution and city:\nDate:\nAudience size:\nWhat you have in mind:"
-      },
-      {
-        "id": "private",
-        "label": "Private or brand event",
-        "detail": "Occasion, date, city, format.",
-        "prefill": "Private or brand event enquiry.\nOccasion and city:\nDate:\nFormat:\nWhat you have in mind:"
-      }
-    ],
+    "options": [],
     "formats": {
       "heading": "Choose your Ochayoli",
       "options": [
