@@ -19,7 +19,7 @@
     <link rel="canonical" href="https://ochayoli.in/" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="preload" href="/fonts/bebas-neue-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="stylesheet" href="/styles.b527fdece7.css" />
+    <link rel="stylesheet" href="/styles.997907b42a.css" />
     <script src="/boot.fc02b84c7d.js"></script>
     <script type="application/ld+json">
       {
@@ -100,16 +100,13 @@
         <div class="chapter__frame shell">
           <p class="chapter__kicker mono" data-reveal="cut">Ochayoli</p>
           <p class="chapter__title chapter__title--tag" data-reveal="cut"><span class="chapter__line">The sound</span><span class="chapter__line">of what's next<i>.</i></span></p>
-          <div class="water" data-water data-reveal="cut" aria-hidden="true">
-            <p class="chapter__title chapter__title--tag water__reflect"><span class="chapter__line">The sound</span><span class="chapter__line">of what's next<i>.</i></span></p>
-            <span class="water__glint water__glint--a"></span><span class="water__glint water__glint--b"></span><span class="water__glint water__glint--c"></span>
+          <div class="reflect" data-reveal="cut" aria-hidden="true">
+            <p class="reflect__word">Ochayoli<i>.</i></p>
           </div>
-          <svg class="water__defs" width="0" height="0" focusable="false" aria-hidden="true">
-            <filter id="water-ripple" x="-5%" y="-5%" width="110%" height="110%">
-              <feTurbulence type="fractalNoise" baseFrequency="0.0015 0.02" numOctaves="1" seed="7" result="n">
-                <animate attributeName="baseFrequency" dur="9s" values="0.0015 0.02;0.003 0.032;0.0015 0.02" repeatCount="indefinite" />
-              </feTurbulence>
-              <feDisplacementMap in="SourceGraphic" in2="n" scale="14" xChannelSelector="R" yChannelSelector="G" />
+          <svg class="svg-defs" width="0" height="0" focusable="false" aria-hidden="true">
+            <filter id="refract-soft" x="-3%" y="-3%" width="106%" height="106%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.002 0.03" numOctaves="1" seed="5" result="n" />
+              <feDisplacementMap in="SourceGraphic" in2="n" scale="9" xChannelSelector="R" yChannelSelector="G" />
             </filter>
           </svg>
         </div>
@@ -138,6 +135,7 @@
         </div>
       </section>
 
+      <svg class="svg-defs" width="0" height="0" focusable="false" aria-hidden="true"><filter id="refract" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.006 0.02" numOctaves="1" seed="3" result="r" /><feDisplacementMap id="refract-map" in="SourceGraphic" in2="r" scale="0" xChannelSelector="R" yChannelSelector="G" /></filter></svg>
       <div class="mf-reveal" data-mf-reveal aria-hidden="true">
         <div class="mf-reveal__mask">
           <img class="mf-reveal__img" src="/assets/hero-1254.webp" width="1254" height="1254" loading="lazy" decoding="async" alt="" />
@@ -156,6 +154,11 @@
           <div class="collective__copy serif">
             <p>O'Flow is a Malayalam hip-hop collective brought together by Ochayoli. Six artists, six directions: production, performance, freestyle, folk and the hard edge of techno.</p>
             <p>Different roots, from Periyar to the Alappad coast to the Kochi streets, sharing one idea: Kerala's next sound is being written right now, in its own language.</p>
+          <ul class="artist-frames" aria-hidden="true">
+            <li class="artist-frame" data-tilt><span class="artist-frame__layer artist-frame__layer--3"></span><span class="artist-frame__layer artist-frame__layer--2"></span><span class="artist-frame__front"><span class="artist-frame__note mono">Portrait to be added</span><span class="artist-frame__name">King Orekh</span></span></li>
+            <li class="artist-frame" data-tilt><span class="artist-frame__layer artist-frame__layer--3"></span><span class="artist-frame__layer artist-frame__layer--2"></span><span class="artist-frame__front"><span class="artist-frame__note mono">Portrait to be added</span><span class="artist-frame__name">Farsin Sidhu</span></span></li>
+            <li class="artist-frame" data-tilt><span class="artist-frame__layer artist-frame__layer--3"></span><span class="artist-frame__layer artist-frame__layer--2"></span><span class="artist-frame__front"><span class="artist-frame__note mono">Portrait to be added</span><span class="artist-frame__name">VAnur</span></span></li>
+          </ul>
           <ul class="artist-links" aria-label="O'Flow artists on Spotify">
             <li><a class="artist-link" href="https://open.spotify.com/artist/65uCxjiUkxVYRfRd4yZiJu" rel="noopener" target="_blank"><span class="artist-link__name">King Orekh</span><span class="artist-link__go mono">Spotify <span aria-hidden="true">↗</span></span></a></li>
             <li><a class="artist-link" href="https://open.spotify.com/artist/37fg491wY02CS172sygshu" rel="noopener" target="_blank"><span class="artist-link__name">Farsin Sidhu</span><span class="artist-link__go mono">Spotify <span aria-hidden="true">↗</span></span></a></li>
@@ -174,6 +177,7 @@
           <span class="section-doodle section-doodle--arrows" aria-hidden="true"></span>
           <p class="section-intro mono">Selected tracks / catalogue in progress</p>
           <figure class="vinyl-feature" data-reveal>
+            <div class="vinyl-feature__float"><span class="vinyl-feature__shadow" aria-hidden="true"></span>
             <svg class="vinyl-feature__disc" viewBox="0 0 400 400" role="img" aria-label="Ochayoli branded vinyl record, illustrative placeholder">
               <defs>
                 <path id="vf-ring" d="M200 200 m-150 0 a150 150 0 1 1 300 0 a150 150 0 1 1 -300 0" />
@@ -193,7 +197,7 @@
               <text class="vinyl-feature__word" x="200" y="184" text-anchor="middle">OCHAYOLI</text>
               <text class="vinyl-feature__sub" x="200" y="236" text-anchor="middle">SIDE A · O'FLOW</text>
               <circle cx="200" cy="200" r="5" fill="#eee7d9" />
-            </svg>
+            </svg></div>
             <figcaption class="vinyl-feature__cap mono">Ochayoli house pressing · illustrative placeholder, not a release</figcaption>
           </figure>
           <div class="release-list" data-release-list>
@@ -265,7 +269,8 @@
         </div>
       </section>
 
-      <section class="events section" id="events" data-scene="Events" aria-labelledby="events-title">
+      <section class="events section" id="events" data-scene="Events" data-events aria-labelledby="events-title">
+        <svg class="ev-contours" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><path pathLength="1" d="M791.7 300 C791.7 307.9 785.1 317.2 776.8 323.6 C768.5 330 754.8 336.4 741.9 338.5 C729 340.6 712.5 338.6 699.5 336.1 C686.5 333.6 672.6 329.3 663.8 323.3 C655.1 317.3 647.3 307.9 646.9 300 C646.5 292.1 652.5 281.6 661.3 275.6 C670.1 269.6 686.3 266.3 699.6 264.1 C712.9 261.9 728.3 260.6 741.3 262.6 C754.2 264.6 768.8 270 777.3 276.2 C785.7 282.5 791.8 292.1 791.7 300Z" /><path pathLength="1" d="M856.1 300 C855.9 315.4 843 333.5 827.2 346 C811.4 358.6 785.6 371.3 761.4 375.2 C737.1 379.1 706.3 374.4 681.8 369.4 C657.3 364.5 631.1 357 614.3 345.4 C597.4 333.8 581.6 315.6 580.6 300 C579.6 284.4 591.4 263.6 608.3 252.1 C625.2 240.6 656.8 235.1 682.1 231 C707.3 226.9 735.6 223.6 760 227.3 C784.3 231.1 812.2 241.4 828.3 253.5 C844.3 265.6 856.3 284.6 856.1 300Z" /><path pathLength="1" d="M921.2 300 C920.9 323 901.1 349.8 877.7 368.5 C854.3 387.2 816.5 406.6 781 412.2 C745.5 417.7 700.7 409.3 664.7 401.8 C628.6 394.4 590.2 384.3 564.9 367.4 C539.6 350.4 514.8 323.2 513 300 C511.3 276.8 529.1 244.9 554.4 228.1 C579.8 211.2 627.8 204.9 665.1 199 C702.4 193 742.7 187.1 778.5 192.4 C814.2 197.7 855.8 212.7 879.6 230.7 C903.3 248.6 921.5 277 921.2 300Z" /><path pathLength="1" d="M987.1 300 C986.6 330.5 959.3 366.1 928.2 391 C897.2 415.9 847.4 442.3 800.7 449.4 C754 456.4 695.5 443.4 648 433.3 C600.5 423.3 549.8 411.5 515.8 389.3 C481.8 367 446.7 330.9 444 300 C441.3 269.1 465.5 225.7 499.6 203.7 C533.7 181.7 599.1 175.6 648.7 167.9 C698.2 160.3 749.8 151.1 796.9 157.7 C843.9 164.3 899.4 184 931.1 207.7 C962.8 231.4 987.6 269.5 987.1 300Z" /><path pathLength="1" d="M1053.7 300 C1053.1 338.2 1017.8 382.4 978.9 413.6 C940 444.7 878.3 478.3 820.5 486.7 C762.6 495.1 690.7 476.5 631.8 463.9 C572.9 451.3 509.8 438.4 466.8 411.1 C423.8 383.7 377.4 338.7 373.6 300 C369.8 261.3 400.7 205.9 443.9 178.9 C487.1 151.9 570.9 147.1 632.8 137.9 C694.6 128.6 756.7 115.5 815.1 123.3 C873.4 131.1 943.2 155.2 983 184.7 C1022.7 214.1 1054.4 261.8 1053.7 300Z" /><path pathLength="1" d="M1121.2 300 C1120.2 345.8 1076.4 398.8 1029.6 436.1 C982.8 473.5 909.3 514.7 840.4 524.3 C771.5 533.9 686.5 508.8 616.1 493.5 C545.7 478.3 470.4 465 418.1 432.8 C365.7 400.5 307 346.5 301.8 300 C296.7 253.5 334.6 185.5 387.2 153.7 C439.8 121.8 543.1 119.6 617.4 108.9 C691.7 98.1 763.5 80.5 833.1 89.3 C902.7 98 987.1 126.3 1035.1 161.4 C1083.1 196.6 1122.1 254.2 1121.2 300Z" /><path pathLength="1" d="M1189.4 300 C1188.2 353.4 1135.2 415.1 1080.4 458.8 C1025.6 502.4 940.4 551.5 860.4 562.1 C780.5 572.7 682.7 540.2 600.9 522.3 C519.1 504.3 431.5 491.4 369.5 454.4 C307.5 417.4 235.3 354.4 228.7 300 C222.1 245.6 267.4 164.6 329.7 128 C392 91.5 515.7 93 602.6 80.9 C689.5 68.8 770.2 45.9 851 55.5 C931.9 65 1031.1 97.4 1087.5 138.1 C1143.8 178.9 1190.5 246.6 1189.4 300Z" /></svg>
         <div class="shell">
           <div class="section-bar"><h2 id="events-title" data-reveal="split">Events</h2><span class="section-number mono">04</span></div>
           <div class="event-row event-row--soon" data-reveal>
@@ -329,7 +334,21 @@
       </section>
     </main>
 
-    <footer class="site-footer">
+    <footer class="site-footer" data-footer>
+      <div class="site-footer__field">
+<svg class="fc-svg" viewBox="-500 -200 1000 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+          <defs><clipPath id="fc-clip"><circle r="30" /></clipPath></defs>
+          <path class="fc-ring fc-r1" d="M46.9 0 C46.9 4.3 42.7 9.4 37.3 13 C31.9 16.5 22.8 19.9 14.3 21.1 C5.9 22.3 -5.1 21.4 -13.6 20 C-22.2 18.7 -31.3 16.2 -37 12.8 C-42.7 9.5 -47.5 4.4 -47.7 0 C-47.9 -4.4 -44 -10 -38.4 -13.3 C-32.7 -16.7 -22.3 -18.7 -13.6 -19.9 C-4.8 -21.2 5.5 -21.8 14 -20.6 C22.5 -19.5 32.1 -16.5 37.6 -13.1 C43 -9.6 47 -4.3 46.9 0Z" />
+          <path class="fc-ring fc-r2" d="M100.5 0 C100.4 9.1 91.2 19.7 79.5 27.1 C67.9 34.5 48.7 41.9 30.6 44.3 C12.6 46.6 -10.5 44.3 -28.7 41.4 C-46.9 38.5 -66.3 33.7 -78.6 26.8 C-90.9 19.9 -101.9 9.1 -102.5 0 C-103.1 -9.1 -94.6 -21.2 -82.3 -28.1 C-70 -34.9 -47.2 -38.7 -28.5 -41.2 C-9.9 -43.7 11.7 -45.3 29.8 -43 C47.9 -40.7 68.4 -34.5 80.2 -27.3 C92 -20.2 100.6 -9.1 100.5 0Z" />
+          <path class="fc-ring fc-r3" d="M154.6 0 C154.4 13.8 139.8 30.1 121.8 41.3 C103.9 52.6 74.5 64 47 67.5 C19.5 71 -15.6 66.8 -43.4 62.4 C-71.3 57.9 -101 51.1 -120.2 40.7 C-139.3 30.3 -157.1 14 -158.3 0 C-159.4 -14 -146 -32.7 -126.8 -43 C-107.7 -53.3 -71.9 -58.3 -43.1 -62 C-14.4 -65.7 17.7 -68.6 45.4 -65.2 C73.1 -61.9 104.8 -52.6 123 -41.7 C141.2 -30.8 154.8 -13.8 154.6 0Z" />
+          <path class="fc-ring fc-r4" d="M209.2 0 C208.9 18.6 188.4 40.4 164.2 55.5 C139.9 70.6 100.4 86.3 63.4 90.8 C26.4 95.4 -20.3 88.9 -57.8 82.8 C-95.3 76.8 -135.4 68.4 -161.6 54.6 C-187.7 40.8 -213.2 18.8 -214.9 0 C-216.7 -18.8 -198.3 -44.5 -172 -58.2 C-145.7 -71.9 -96.2 -77.3 -57.4 -82.2 C-18.6 -87.1 23.7 -91.7 61 -87.3 C98.2 -83 141.3 -70.7 166 -56.1 C190.7 -41.6 209.5 -18.6 209.2 0Z" />
+          <path class="fc-ring fc-r5" d="M264.3 0 C263.8 23.4 237.3 50.7 206.5 69.7 C175.8 88.8 126.3 108.8 79.9 114.3 C33.5 119.8 -24.8 110.5 -71.9 102.8 C-119.1 95.2 -169.4 85.6 -202.8 68.5 C-236.3 51.3 -270 23.7 -272.5 0 C-275 -23.7 -251.3 -56.5 -217.8 -73.5 C-184.2 -90.5 -120.3 -96 -71.3 -101.9 C-22.3 -107.9 29.7 -114.5 76.4 -109.2 C123.2 -104 177.9 -88.8 209.2 -70.6 C240.5 -52.4 264.7 -23.4 264.3 0Z" />
+          <path class="fc-ring fc-r6" d="M319.9 0 C319.3 28.2 286.2 61 249 83.9 C211.7 106.9 152.3 131.4 96.5 137.8 C40.7 144.3 -28.9 131.6 -85.7 122.4 C-142.4 113.1 -203.1 102.6 -244 82.3 C-284.9 61.9 -327.7 28.6 -331 0 C-334.4 -28.6 -305.2 -68.9 -264.2 -89.1 C-223.2 -109.3 -144.2 -114.2 -84.8 -121.2 C-25.5 -128.2 35.5 -137 91.7 -131 C148 -125 214.5 -107 252.6 -85.2 C290.6 -63.3 320.5 -28.2 319.9 0Z" />
+          <path class="fc-ring fc-r7" d="M376 0 C375.2 33 335.3 71.3 291.5 98.2 C247.7 125.1 178.3 154.3 113.2 161.5 C48.1 168.7 -32.8 152.4 -99.1 141.4 C-165.5 130.5 -236.4 119.6 -285 96 C-333.5 72.4 -386.1 33.5 -390.5 0 C-394.9 -33.5 -359.9 -81.5 -311.2 -104.8 C-262.5 -128.2 -167.7 -131.9 -98 -139.9 C-28.3 -147.8 41.3 -159.3 107 -152.7 C172.7 -146 251.3 -125.2 296.1 -99.8 C341 -74.3 376.8 -33 376 0Z" />
+          <path class="fc-ring fc-r8" d="M432.7 0 C431.7 37.8 384.5 81.6 334 112.5 C283.5 143.3 204.3 177.3 129.9 185.3 C55.5 193.2 -36.3 172.6 -112.2 160 C-188.2 147.4 -269.4 136.4 -325.8 109.7 C-382.3 83 -445.4 38.4 -450.9 0 C-456.4 -38.4 -415.5 -94.5 -358.8 -120.8 C-302.2 -147.2 -191 -149.2 -110.8 -158.1 C-30.7 -166.9 47 -181.4 122.1 -174.1 C197.2 -166.9 288.1 -143.5 339.9 -114.4 C391.6 -85.4 433.6 -37.8 432.7 0Z" />
+          <g class="fc-mark"><circle r="30" fill="#c94a32" /><g clip-path="url(#fc-clip)"><rect x="-5" y="-44" width="10" height="88" fill="#0b0b0a" transform="rotate(28)" /></g></g>
+        </svg>
+      </div>
       <div class="shell site-footer__inner">
         <a class="wordmark" href="/" aria-label="Ochayoli home">OCHAYOLI<span>.</span></a>
         <p class="mono">Independent voices / The Sound of What&#39;s Next</p>
@@ -340,6 +359,6 @@
         </div>
       </div>
     </footer>
-    <script type="module" src="/script.9167daadf5.js"></script>
+    <script type="module" src="/script.bd3df4fda7.js"></script>
   </body>
 </html>
