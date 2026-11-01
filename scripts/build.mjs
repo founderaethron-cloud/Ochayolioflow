@@ -15,7 +15,7 @@ const OUT = 'dist';
 
 // Files in src/ that are not copied verbatim.
 const HASHED = ['styles.css', 'script.js', 'store.js'];
-const HERO_SRC = 'assets/ochayoli-hero-abstract.png';
+const HERO_SRC = 'assets/ochayoli-hero-abstract.webp';
 const NOT_COPIED = new Set([...HASHED, HERO_SRC]);
 
 const hash = (buf) => createHash('sha256').update(buf).digest('hex').slice(0, 10);
