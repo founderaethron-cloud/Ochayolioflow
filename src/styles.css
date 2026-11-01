@@ -439,7 +439,6 @@ em { color: var(--rust); font-style: normal; }
 .home .hero__lede { animation: wipeIn 1.3s steps(36, end) 2.1s both; }
 .home .hero__cta { animation: fadeUp .8s ease 2.9s both; }
 .home .hero__inner { animation: shake .4s steps(2, end) 1.15s 1; }
-.home .hero__image { transform: translate3d(0, calc(var(--hero-p, 0) * 12vh), 0); will-change: transform; }
 .home .hero__image img { animation: heroPush 18s cubic-bezier(.2, .6, .2, 1) 1s both; }
 .home .hero::after { content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: radial-gradient(ellipse at 60% 45%, transparent 38%, rgba(0, 0, 0, .55) 100%); }
 @keyframes titleSlam { from { opacity: 0; transform: scale(1.5) translateY(-4%); filter: blur(10px); } 55% { opacity: 1; transform: scale(.97); filter: blur(0); } to { opacity: 1; transform: none; filter: none; } }
@@ -478,13 +477,12 @@ em { color: var(--rust); font-style: normal; }
 @media (max-width: 780px) { .hud__scene { display: none; } .home .hero__inner { padding-top: 8rem; } }
 
 /* Skip + reduced motion: no intro, no motion layers, everything at rest. */
-.skip-intro .cine-curtain, .skip-intro .cine-bars i, .skip-intro .hero__title span, .skip-intro .hero__title b, .skip-intro .hero__kicker,
-.skip-intro .hero__lede, .skip-intro .hero__cta, .skip-intro .hero__inner { animation: none; }
+.skip-intro .cine-curtain, .skip-intro .cine-bars i, .skip-intro .home .hero__title span, .skip-intro .home .hero__title b, .skip-intro .home .hero__kicker,
+.skip-intro .home .hero__lede, .skip-intro .home .hero__cta, .skip-intro .home .hero__inner { animation: none; }
 .skip-intro .hero__image img { animation-delay: 0s; animation-duration: 18s; }
 @media (prefers-reduced-motion: reduce) {
   .home::after, .cine-curtain, .cine-bars i, .home .hero__title span, .home .hero__title b, .home .hero__kicker, .home .hero__lede,
   .home .hero__cta, .home .hero__inner, .home .hero__image img, .hud__rec::before { animation: none !important; }
-  .home .hero__image { transform: none; will-change: auto; }
   .cine-curtain, .cine-bars { display: none; }
 }
 
@@ -495,3 +493,79 @@ em { color: var(--rust); font-style: normal; }
 .artist-link__go { color: var(--muted); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; }
 .artist-link:hover, .artist-link:focus-visible { padding-left: .8rem; color: var(--lime); }
 .artist-link:hover .artist-link__go, .artist-link:focus-visible .artist-link__go { color: var(--lime); }
+
+/* =========================================================================
+   THE BLACKOUT: scroll-driven sequence on the hero.
+   --bo (0..1) is set by js/blackout.js; every phase below derives from it.
+   Only transform and opacity change. Without JS or with reduced motion the
+   track collapses to the plain hero.
+   ========================================================================= */
+.blackout { --bo: 0;
+  --sig: clamp(0, calc(var(--bo) / .2), 1);
+  --brk: clamp(0, calc((var(--bo) - .2) / .3), 1);
+  --blk: clamp(0, calc((var(--bo) - .5) / .1), 1);
+  --drop: clamp(0, calc((var(--bo) - .6) / .2), 1);
+  --fly: clamp(0, calc((var(--bo) - .8) / .2), 1);
+  position: relative; }
+.js .blackout { height: calc(100svh * 2.6); }
+.blackout__stage { position: sticky; top: 0; height: 100svh; overflow: hidden; background: var(--ink); }
+.blackout__stage .hero { height: 100%; min-height: 0; }
+
+.bo-fill, .bo-black, .bo-portal { position: absolute; pointer-events: none; display: none; }
+.js .bo-fill, .js .bo-black, .js .bo-portal { display: block; }
+/* Orange takeover: a huge disc scaled from the artwork's disc size up past the corners. */
+.bo-fill { z-index: 1; width: 200vmax; height: 200vmax; left: calc(78% - 100vmax); top: calc(46% - 100vmax); border-radius: 50%; background: var(--rust);
+  transform: scale(calc(.2 + var(--brk) * .95)); opacity: clamp(0, calc(var(--brk) * 14), 1); will-change: transform, opacity; }
+.bo-black { z-index: 3; inset: 0; background: #000; opacity: var(--blk); }
+.bo-portal { z-index: 4; inset: 0; width: 100%; height: 100%; }
+.bo-wave { stroke-dasharray: 1; stroke-dashoffset: calc(1 - clamp(0, calc(var(--drop) * 2), 1)); opacity: calc(1 - clamp(0, calc((var(--drop) - .5) * 4), 1));
+  transform-origin: 500px 500px; transform: scaleY(calc(1 - clamp(0, calc((var(--drop) - .4) * 2), 1) * .9)); }
+.bo-ring { transform-origin: 500px 500px; transform-box: view-box;
+  transform: rotate(calc(var(--drop) * 120deg)) scale(calc((.2 + clamp(0, calc((var(--drop) - .45) * 1.8), 1) * .8) * (1 + var(--fly) * 9)));
+  opacity: calc(clamp(0, calc((var(--drop) - .45) * 4), 1) * (1 - clamp(0, calc((var(--fly) - .7) * 3.4), 1))); }
+
+/* Signal: a slow, small tremble on the title and faster orbit. */
+.js .blackout .hero__title:not(.bo-clone) { --amp: calc(var(--sig) * 1.8px); }
+.js .blackout.is-live .hero__title { animation: boTremble .7s ease-in-out infinite alternate; }
+@keyframes boTremble { from { translate: calc(var(--amp, 0px) * -1) 0; } to { translate: var(--amp, 0px) calc(var(--amp, 0px) * .5); } }
+.js .blackout .hero__doodle--orbit { animation: none; transform: rotate(calc(-23deg - var(--bo) * 900deg)) scale(calc(1 + var(--brk) * 1.4)); opacity: calc(1 - var(--brk)); }
+.js .blackout .hero__doodle--spark, .js .blackout .hero__doodle--line { opacity: calc(1 - var(--brk) * 2); }
+
+/* Breakdown: title splits into three slices sliding apart; copy fades; art pushes in. */
+.bo-clone { display: none; }
+.js .blackout.is-split .bo-clone { display: flex; position: absolute; left: 0; top: 0; margin: 3rem 0 2rem; pointer-events: none; }
+.js .blackout.is-split .hero__title:not(.bo-clone) { clip-path: inset(-30% -5% 66% -5%); }
+.js .blackout.is-split .bo-clone--mid { clip-path: inset(34% -5% 33% -5%); }
+.js .blackout.is-split .bo-clone--low { clip-path: inset(67% -5% -30% -5%); }
+.js .blackout .hero__title:not(.bo-clone) { transform: translate3d(calc(var(--brk) * -24vw), 0, 0); }
+.js .blackout .bo-clone--mid { transform: translate3d(calc(var(--brk) * 32vw), 0, 0); }
+.js .blackout .bo-clone--low { transform: translate3d(calc(var(--brk) * -12vw), 0, 0); }
+.js .blackout .hero__content { opacity: calc(1 - clamp(0, calc((var(--brk) - .55) * 2.4), 1)); }
+.js .blackout .hero__lede, .js .blackout .hero__kicker, .js .blackout .hero__cta, .js .blackout .hero__rail { opacity: calc(1 - var(--brk) * 2.2); }
+.js .blackout .hero__image img { transform-origin: 78% 46%; scale: calc(1 + var(--brk) * .55); }
+.js .blackout .hero__image { z-index: 0; }
+.js .blackout .hero__content, .js .blackout .hero__doodles { z-index: 2; }
+.blackout.is-lite .bo-clone { display: none !important; }
+.blackout.is-lite .hero__title:not(.bo-clone) { clip-path: none !important; }
+
+@media (max-width: 780px) {
+  .js .blackout { height: calc(100svh * 1.7); }
+  .bo-clone { display: none !important; }
+  .js .blackout.is-split .hero__title:not(.bo-clone) { clip-path: none; }
+  .js .blackout .hero__title:not(.bo-clone) { transform: translate3d(calc(var(--brk) * -10vw), 0, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .js .blackout { height: auto; }
+  .blackout__stage { position: relative; height: auto; overflow: visible; }
+  .blackout__stage .hero { height: auto; min-height: 100svh; }
+  .bo-fill, .bo-black, .bo-portal, .bo-clone { display: none !important; }
+}
+
+/* Vinyl placeholders on release rows (Ochayoli-themed, not official artwork). */
+.release-card__disc { display: block; width: 100%; max-width: 6.5rem; }
+.release-card__disc svg { display: block; width: 100%; height: auto; }
+.release-card:hover .release-card__disc svg, .release-card:focus-within .release-card__disc svg, .release-card.is-open .release-card__disc svg { animation: discSpin 6s linear infinite; }
+@keyframes discSpin { to { transform: rotate(360deg); } }
+.disc__num { fill: #eee7d9; font: 500 9px var(--font-mono); letter-spacing: .06em; }
+@media (max-width: 780px) { .release-card__disc { max-width: 3rem; } }
+@media (prefers-reduced-motion: reduce) { .release-card:hover .release-card__disc svg, .release-card:focus-within .release-card__disc svg, .release-card.is-open .release-card__disc svg { animation: none; } }

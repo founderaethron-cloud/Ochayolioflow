@@ -6,6 +6,7 @@ import { initContactForm } from './js/contact-form.js';
 import { initReveal } from './js/reveal.js';
 import { initHero } from './js/hero.js';
 import { initHud } from './js/hud.js';
+import { initBlackout } from './js/blackout.js';
 
 initNav();
 initReleases();
@@ -13,3 +14,4 @@ initContactForm();
 initReveal();
 initHero();
 initHud();
+initBlackout();

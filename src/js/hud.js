@@ -20,12 +20,20 @@ export function initHud() {
   const sections = [...document.querySelectorAll('[data-scene]')];
   if (!sections.length || !('IntersectionObserver' in window)) return;
   const total = sections.length;
+  let override = null; // phase name while THE BLACKOUT sequence is playing
+  let current = '';
+  document.addEventListener('ochayoli:phase', (event) => {
+    override = event.detail.label;
+    if (override) scene.textContent = `SCENE 1/${total} · ${override}`;
+    else if (current) scene.textContent = current;
+  });
   const observer = new IntersectionObserver(
     (entries) => {
       for (const entry of entries) {
         if (!entry.isIntersecting) continue;
         const index = sections.indexOf(entry.target) + 1;
-        scene.textContent = `SCENE ${index}/${total} · ${entry.target.dataset.scene}`;
+        current = `SCENE ${index}/${total} · ${entry.target.dataset.scene}`;
+        if (!override) scene.textContent = current;
       }
     },
     { rootMargin: '-45% 0px -50% 0px' }

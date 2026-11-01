@@ -50,6 +50,8 @@ const templates = await loadTemplates();
 const home = await renderHtml(await readFile('src/index.html', 'utf8'), content, templates);
 assert.doesNotMatch(home, /<!--@|\{\{/, 'unrendered marker left in index.html');
 assert.match(home, /THUVVAK/);
+assert.match(home, /release-card__disc/);
+assert.match(home, /data-blackout/);
 assert.match(home, /class="artist-link"[^>]*href="https:\/\/open\.spotify\.com\/artist\//);
 assert.match(home, /<option value="booking">/);
 assert.match(home, /id="events"/);

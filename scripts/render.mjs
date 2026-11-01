@@ -27,6 +27,23 @@ const SOCIAL = {
   x: 'X'
 };
 
+// Ochayoli-themed vinyl placeholder (original artwork: ink disc, grooves, rust label with the slash).
+const vinyl = (id, n) => `<svg viewBox="0 0 120 120" role="presentation" focusable="false" aria-hidden="true">
+              <defs><clipPath id="lab-${esc(id)}"><circle cx="60" cy="60" r="22" /></clipPath></defs>
+              <circle cx="60" cy="60" r="58" fill="#0b0b0a" stroke="#2c2a26" stroke-width="1" />
+              <circle cx="60" cy="60" r="52" fill="none" stroke="#eee7d9" stroke-opacity=".12" />
+              <circle cx="60" cy="60" r="47" fill="none" stroke="#eee7d9" stroke-opacity=".08" />
+              <circle cx="60" cy="60" r="42" fill="none" stroke="#eee7d9" stroke-opacity=".12" />
+              <circle cx="60" cy="60" r="37" fill="none" stroke="#eee7d9" stroke-opacity=".08" />
+              <circle cx="60" cy="60" r="31" fill="none" stroke="#eee7d9" stroke-opacity=".1" />
+              <path d="M60 6 A54 54 0 0 1 110 40" fill="none" stroke="#d8ff3f" stroke-width="1.4" stroke-linecap="round" />
+              <path d="M60 60 L112 38 A58 58 0 0 0 98 18 Z" fill="#eee7d9" fill-opacity=".05" />
+              <circle cx="60" cy="60" r="22" fill="#c94a32" />
+              <g clip-path="url(#lab-${esc(id)})"><rect x="54" y="30" width="9" height="60" fill="#0b0b0a" transform="rotate(28 60 60)" /></g>
+              <text class="disc__num" x="60" y="108" text-anchor="middle">${String(n).padStart(2, '0')}</text>
+              <circle cx="60" cy="60" r="2.4" fill="#eee7d9" />
+            </svg>`;
+
 const generators = {
   nav: (c) =>
     c.nav
@@ -48,7 +65,7 @@ const generators = {
           .join('');
         const meta = links ? `${esc(r.artist)}` : `${esc(r.artist)} · listening link to be added`;
         return `          <article class="release-card" data-reveal id="release-${esc(r.id)}">
-            <span class="release-card__index mono">${String(i + 1).padStart(2, '0')}</span>
+            <span class="release-card__disc">${vinyl(r.id, i + 1)}</span>
             <h3 class="release-card__title">${esc(r.title)}</h3>
             <p class="release-card__artist mono">${meta}</p>
             <button class="release-card__button" type="button" aria-expanded="false" aria-label="Show note for ${esc(r.title)}">↗</button>
