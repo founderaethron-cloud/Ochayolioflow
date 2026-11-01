@@ -1,0 +1,117 @@
+<!--@page title="OCHAYOLI — The sound of what's next" description="OCHAYOLI is an independent music label and home of the O'Flow collective — original voices from Kerala and beyond." path="/" robots="index, follow"-->
+<!doctype html>
+<html lang="en">
+  <head>
+<!--@include head-->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Ochayoli",
+        "url": "https://ochayoli.in/",
+        "description": "Independent music label and home of the O'Flow collective.",
+        "areaServed": "Kerala, India"
+      }
+    </script>
+  </head>
+  <body>
+<!--@include header-->
+
+    <main id="content">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="hero__inner shell">
+          <p class="hero__kicker mono">Music label <span>·</span> Kerala <span>·</span> Est. underground</p>
+          <div class="hero__image" aria-hidden="true"><picture><source type="image/avif" srcset="/assets/hero-640.avif 640w, /assets/hero-1254.avif 1254w" sizes="100vw" /><source type="image/webp" srcset="/assets/hero-640.webp 640w, /assets/hero-1254.webp 1254w" sizes="100vw" /><img src="/assets/hero-1254.webp" width="1254" height="1254" fetchpriority="high" decoding="async" alt="" /></picture></div>
+          <div class="hero__doodles" aria-hidden="true">
+            <span class="hero__doodle hero__doodle--orbit"></span>
+            <span class="hero__doodle hero__doodle--spark">✦</span>
+            <span class="hero__doodle hero__doodle--line"></span>
+          </div>
+          <div class="hero__content">
+            <h1 id="hero-title" class="hero__title" aria-label="Ochayoli"><span>OCHA</span><span>YOLI</span><b>.</b></h1>
+            <p class="hero__lede serif">Home of <mark>O'Flow</mark> — the Malayalam hip-hop collective. <strong>The Sound of What's Next.</strong></p>
+          </div>
+          <a class="hero__cta mono" href="#oflow">Discover O'Flow <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="hero__rail mono" aria-hidden="true"><span>O'FLOW</span><span>ORIGINAL VOICES</span><span>BUILT DIFFERENT</span><span>KERALA / INDIA</span></div>
+      </section>
+
+      <section class="manifesto section section--paper section--doodle" id="label" aria-labelledby="manifesto-title">
+        <div class="shell">
+          <div class="section-kicker mono">01 / Manifesto</div>
+          <span class="section-doodle section-doodle--scribble" aria-hidden="true"></span>
+          <div class="manifesto__heading" data-reveal>
+            <h2 id="manifesto-title">Before there was a stage,<br />there was <em>street.</em></h2>
+            <div class="manifesto__copy serif">
+              <p>Corners, bus stops, rooftops and riverbanks. Ochayoli exists to amplify voices that were already loud — the ones raised in Malayalam, rooted in place and built without permission.</p>
+              <p>Different voices. One restless spirit. Music that refuses to stay in its lane.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="collective section section--doodle" id="oflow" aria-labelledby="collective-title">
+        <div class="shell collective__grid" data-reveal>
+          <div>
+            <p class="section-kicker mono section-kicker--lime">02 / The collective</p>
+            <h2 id="collective-title">O'Flow</h2>
+            <span class="highlight mono">The sound of what's next</span>
+            <span class="section-doodle section-doodle--orbit" aria-hidden="true"></span>
+          </div>
+          <div class="collective__copy serif">
+            <p>O'Flow is a Malayalam hip-hop collective brought together by Ochayoli. Six artists, six directions: production, performance, freestyle, folk and the hard edge of techno.</p>
+            <p>Different roots, from Periyar to the Alappad coast to the Kochi streets, sharing one idea: Kerala's next sound is being written right now, in its own language.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="releases section section--paper section--doodle" id="music" aria-labelledby="releases-title">
+        <div class="shell">
+          <div class="section-bar">
+            <h2 id="releases-title">Releases</h2>
+            <span class="section-number mono">03</span>
+          </div>
+          <span class="section-doodle section-doodle--arrows" aria-hidden="true"></span>
+          <p class="section-intro mono">Selected tracks / catalogue in progress</p>
+          <div class="release-list" data-release-list>
+<!--@render releases-->
+          </div>
+          <p class="disclaimer mono">Cover graphics are illustrative placeholders, not official release art. Streaming links, release dates and credits are added only after label verification.</p>
+        </div>
+      </section>
+
+<!--@render events-->
+
+      <section class="connect section section--paper section--doodle" id="connect" aria-labelledby="connect-title">
+        <div class="shell connect__grid" data-reveal>
+          <div>
+            <p class="section-kicker mono">05 / Contact</p>
+            <span class="section-doodle section-doodle--burst" aria-hidden="true"></span>
+            <h2 id="connect-title">Make some<br /><em>noise.</em></h2>
+            <p class="connect__copy serif">For artist collaborations, live bookings, creative partnerships, and all things music — start the conversation.</p>
+            <p class="connect__note mono">Messages are forwarded to {{site.email}}. Please do not include sensitive information.</p>
+          </div>
+          <form class="inquiry-form" action="contact.php" method="post" data-inquiry-form novalidate>
+            <label class="field-honeypot" for="website">Website</label>
+            <input class="field-honeypot" id="website" name="website" autocomplete="off" tabindex="-1" />
+            <label for="name">Your name</label>
+            <input id="name" name="name" autocomplete="name" required placeholder="Name" />
+            <label for="topic">What is this about?</label>
+            <select id="topic" name="topic" required>
+              <option value="" disabled selected>Choose a topic</option>
+              <!--@render topics-->
+            </select>
+            <label for="email">Email address</label>
+            <input id="email" name="email" type="email" autocomplete="email" required placeholder="you@example.com" />
+            <label for="message">Tell us what's on your mind</label>
+            <textarea id="message" name="message" required placeholder="Your idea, project, or question..."></textarea>
+            <button class="button button--dark mono" type="submit">Send inquiry <span aria-hidden="true">↗</span></button>
+            <p class="form-status mono" data-form-status role="status" aria-live="polite">Your message will be forwarded to {{site.email}}.</p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+<!--@include footer-->
+  </body>
+</html>

@@ -1,0 +1,27 @@
+<!--@page title="Auditions — OCHAYOLI" description="Auditions at OCHAYOLI are not open yet. Details will be published here before anything opens." path="/auditions/" robots="noindex, follow"-->
+<!doctype html>
+<html lang="en">
+  <head>
+<!--@include head-->
+  </head>
+  <body class="store-page">
+<!--@include header-->
+
+    <main id="content">
+      <section class="store-page-section section section--paper">
+        <div class="shell store-flow">
+          <p class="section-kicker mono">Casting call</p>
+          <div class="store-flow__heading"><h1>Audi&shy;<br /><em>tions.</em></h1></div>
+          <div class="audition-status serif">
+            <p><strong>{{auditions.status}}</strong></p>
+            <p>{{auditions.note}}</p>
+            <p>Want to hear first? Write to <a href="mailto:{{site.email}}?subject=Auditions">{{site.email}}</a> with the subject "Auditions".</p>
+          </div>
+          <div class="store-flow__actions"><a class="button button--dark mono" href="/">Back to home <span aria-hidden="true">↗</span></a></div>
+        </div>
+      </section>
+    </main>
+
+<!--@include footer-->
+  </body>
+</html>

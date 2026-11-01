@@ -1,0 +1,21 @@
+{
+  "name": "ochayoli-site",
+  "private": true,
+  "version": "1.1.0",
+  "description": "Ochayoli music label website and catalogue-first store",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "npm run build && npx --yes serve dist",
+    "test": "node tests/smoke.mjs && node tests/content.mjs && node tests/qikink-contract.mjs",
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/check-dist.mjs",
+    "verify": "npm test && npm run build && npm run check",
+    "release": "npm run verify && bash scripts/publish-deploy.sh"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2",
+    "sharp": "^0.35.5"
+  }
+}

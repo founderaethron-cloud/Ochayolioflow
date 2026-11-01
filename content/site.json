@@ -1,0 +1,141 @@
+{
+  "_readme": "Single source of truth for site content. Only add facts that are verified. A URL left empty is simply not rendered. See tests/content.mjs for the validation rules.",
+  "site": {
+    "name": "Ochayoli",
+    "url": "https://ochayoli.in",
+    "email": "hello@ochayoli.in",
+    "tagline": "The Sound of What's Next",
+    "description": "OCHAYOLI is an independent music label and home of the O'Flow collective — original voices from Kerala and beyond."
+  },
+  "nav": [
+    {
+      "label": "Releases",
+      "href": "/#music",
+      "section": "music"
+    },
+    {
+      "label": "O'Flow",
+      "href": "/#oflow",
+      "section": "oflow"
+    },
+    {
+      "label": "Events",
+      "href": "/#events",
+      "section": "events"
+    },
+    {
+      "label": "Auditions",
+      "href": "/auditions/"
+    },
+    {
+      "label": "Store",
+      "href": "/store/"
+    },
+    {
+      "label": "Contact",
+      "href": "/#connect",
+      "section": "connect"
+    }
+  ],
+  "links": {
+    "spotify": "",
+    "youtube": "",
+    "instagram": "",
+    "appleMusic": "",
+    "x": ""
+  },
+  "releases": [
+    {
+      "id": "thuvvak",
+      "title": "THUVVAK",
+      "artist": "Farsida",
+      "links": {
+        "spotify": "",
+        "youtube": ""
+      },
+      "note": "A selected track reference from the O'Flow curated set. Official release metadata to be added."
+    },
+    {
+      "id": "laav",
+      "title": "LAAV",
+      "artist": "Farsida",
+      "links": {
+        "spotify": "",
+        "youtube": ""
+      },
+      "note": "A selected track reference from the O'Flow curated set. Official release metadata to be added."
+    },
+    {
+      "id": "melle-panjo",
+      "title": "MELLE PANJO",
+      "artist": "Jarvie G",
+      "links": {
+        "spotify": "",
+        "youtube": ""
+      },
+      "note": "A selected track reference from the O'Flow curated set. Official release metadata to be added."
+    }
+  ],
+  "events": [],
+  "auditions": {
+    "open": false,
+    "status": "Auditions are not open yet.",
+    "note": "Rules, eligibility, dates and how to enter will be published here before anything opens. Nothing is collected on this page."
+  },
+  "contactTopics": [
+    {
+      "value": "collaboration",
+      "label": "Artist collaboration"
+    },
+    {
+      "value": "booking",
+      "label": "Live booking"
+    },
+    {
+      "value": "partnership",
+      "label": "Creative partnership"
+    },
+    {
+      "value": "press",
+      "label": "Press"
+    },
+    {
+      "value": "auditions",
+      "label": "Auditions"
+    },
+    {
+      "value": "other",
+      "label": "Something else"
+    }
+  ],
+  "booking": {
+    "heading": "Book O'Flow",
+    "intro": "Tell us what you have in mind. Every option opens the contact form with the topic filled in. No prices are listed; we reply with terms per request.",
+    "options": [
+      {
+        "id": "club",
+        "label": "Club or live show",
+        "detail": "Venue, date, city, expected crowd.",
+        "prefill": "Live show enquiry.\nVenue and city:\nDate:\nExpected crowd:\nWhat you have in mind:"
+      },
+      {
+        "id": "festival",
+        "label": "Festival",
+        "detail": "Festival name, dates, slot length.",
+        "prefill": "Festival enquiry.\nFestival name and city:\nDates:\nSlot length:\nWhat you have in mind:"
+      },
+      {
+        "id": "college",
+        "label": "College or cultural event",
+        "detail": "Institution, date, audience size.",
+        "prefill": "College or cultural event enquiry.\nInstitution and city:\nDate:\nAudience size:\nWhat you have in mind:"
+      },
+      {
+        "id": "private",
+        "label": "Private or brand event",
+        "detail": "Occasion, date, city, format.",
+        "prefill": "Private or brand event enquiry.\nOccasion and city:\nDate:\nFormat:\nWhat you have in mind:"
+      }
+    ]
+  }
+}

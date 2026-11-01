@@ -1,0 +1,41 @@
+name: Verify and publish
+
+# Pull requests: run tests, build and integrity check.
+# Push to main: the same, then publish dist/ to the `deploy` branch,
+# which Hostinger deploys to ochayoli.in.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publish-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
+      - run: npm run check
+      - name: Publish dist to the deploy branch
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        env:
+          DEPLOY_REMOTE_URL: https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+          DEPLOY_GIT_NAME: github-actions[bot]
+          DEPLOY_GIT_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+        run: bash scripts/publish-deploy.sh

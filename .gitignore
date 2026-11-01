@@ -1,0 +1,15 @@
+# Dependencies and build output (dist/ is generated and lives on the deploy branch)
+node_modules/
+dist/
+
+# Secrets and local config. Real values never go in this repository.
+.env
+.env.*
+!.env.example
+qikink-config.php
+
+# Local tooling and OS noise
+.claude/
+.hostinger/
+.DS_Store
+*.log
