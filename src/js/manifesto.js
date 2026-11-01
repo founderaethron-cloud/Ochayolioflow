@@ -15,6 +15,8 @@ export function initManifesto() {
   const orbit = section.querySelector('.mf-orbit');
   const dot = section.querySelector('.mf-dot');
   const band = document.querySelector('[data-mf-reveal]');
+  const refractMap = document.getElementById('refract-map');
+  const wide = window.matchMedia('(min-width: 781px) and (hover: hover)').matches;
   section.querySelectorAll('.ml').forEach((el, i) => el.style.setProperty('--n', String(i)));
 
   const set = (el, name, value) => el.style.setProperty(name, typeof value === 'number' ? value.toFixed(4) : value);
@@ -44,7 +46,14 @@ export function initManifesto() {
     }
     if (band) {
       const br = band.getBoundingClientRect();
-      if (br.bottom > 0 && br.top < vh) set(band, '--rv', inOut(clamp((vh - br.top) / (vh * 0.75))));
+      if (br.bottom > 0 && br.top < vh) {
+        const rv = inOut(clamp((vh - br.top) / (vh * 0.75)));
+        set(band, '--rv', rv);
+        // Refraction wipe: a brief displacement while the mask opens, gone once settled.
+        const active = wide && refractMap && rv > 0.02 && rv < 0.98;
+        band.classList.toggle('is-refract', Boolean(active));
+        if (active) refractMap.setAttribute('scale', (Math.sin(Math.PI * rv) * 38).toFixed(1));
+      }
     }
   }
   const request = () => { if (!queued) { queued = true; requestAnimationFrame(update); } };

@@ -9,6 +9,7 @@ import { initHud } from './js/hud.js';
 import { initBlackout } from './js/blackout.js';
 import { initWater } from './js/water.js';
 import { initManifesto } from './js/manifesto.js';
+import { initUndercurrent } from './js/undercurrent.js';
 
 initNav();
 initReleases();
@@ -19,3 +20,4 @@ initHud();
 initBlackout();
 initWater();
 initManifesto();
+initUndercurrent();

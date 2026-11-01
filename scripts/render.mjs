@@ -44,6 +44,24 @@ const vinyl = (id, n) => `<svg viewBox="0 0 120 120" role="presentation" focusab
               <circle cx="60" cy="60" r="2.4" fill="#eee7d9" />
             </svg>`;
 
+// THE UNDERCURRENT: deterministic abstract contour lines (organic closed curves), no external assets.
+const f = (n) => Math.round(n * 10) / 10;
+function blob(cx, cy, rx, ry, amp, pts = 10) {
+  const ph = [1.3, 4.1, 2.2];
+  const P = [];
+  for (let i = 0; i < pts; i++) {
+    const t = (i / pts) * Math.PI * 2;
+    const k = 1 + amp * (Math.sin(2 * t + ph[0]) * 0.6 + Math.sin(3 * t + ph[1]) * 0.4 + Math.sin(5 * t + ph[2]) * 0.2);
+    P.push([cx + Math.cos(t) * rx * k, cy + Math.sin(t) * ry * k]);
+  }
+  let d = `M${f(P[0][0])} ${f(P[0][1])}`;
+  for (let i = 0; i < pts; i++) {
+    const p0 = P[(i - 1 + pts) % pts], p1 = P[i], p2 = P[(i + 1) % pts], p3 = P[(i + 2) % pts];
+    d += ` C${f(p1[0] + (p2[0] - p0[0]) / 6)} ${f(p1[1] + (p2[1] - p0[1]) / 6)} ${f(p2[0] - (p3[0] - p1[0]) / 6)} ${f(p2[1] - (p3[1] - p1[1]) / 6)} ${f(p2[0])} ${f(p2[1])}`;
+  }
+  return `${d}Z`;
+}
+
 const generators = {
   nav: (c) =>
     c.nav
@@ -73,6 +91,15 @@ const generators = {
           </article>`;
       })
       .join('\n'),
+
+  'footer-field': () => {
+    const rings = Array.from({ length: 8 }, (_, i) => `<path class="fc-ring fc-r${i + 1}" d="${blob(0, 0, 46 + i * 52, 22 + i * 24, 0.05 + i * 0.012)}" />`).join('\n          ');
+    return `<svg class="fc-svg" viewBox="-500 -200 1000 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+          <defs><clipPath id="fc-clip"><circle r="30" /></clipPath></defs>
+          ${rings}
+          <g class="fc-mark"><circle r="30" fill="#c94a32" /><g clip-path="url(#fc-clip)"><rect x="-5" y="-44" width="10" height="88" fill="#0b0b0a" transform="rotate(28)" /></g></g>
+        </svg>`;
+  },
 
   events: (c) => {
     const rows = c.events.length
@@ -111,7 +138,9 @@ ${f.options.map((o) => `              <a class="booking__option booking__option-
             </div>
 ${options ? '            <h4 class="booking__sub mono">Or tell us the occasion</h4>' : ''}`
       : '';
-    return `      <section class="events section" id="events" data-scene="Events" aria-labelledby="events-title">
+    const contours = Array.from({ length: 7 }, (_, i) => `<path pathLength="1" d="${blob(720, 300, 70 + i * 62, 40 + i * 38, 0.06 + i * 0.015)}" />`).join('');
+    return `      <section class="events section" id="events" data-scene="Events" data-events aria-labelledby="events-title">
+        <svg class="ev-contours" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">${contours}</svg>
         <div class="shell">
           <div class="section-bar"><h2 id="events-title" data-reveal="split">Events</h2><span class="section-number mono">04</span></div>
 ${rows}
@@ -147,7 +176,13 @@ ${options}
     const items = c.artists
       .map((a) => `            <li><a class="artist-link" href="${esc(a.spotify)}" rel="noopener" target="_blank"><span class="artist-link__name">${esc(a.name)}</span><span class="artist-link__go mono">Spotify <span aria-hidden="true">↗</span></span></a></li>`)
       .join('\n');
-    return `          <ul class="artist-links" aria-label="O'Flow artists on Spotify">
+    const frames = c.artists
+      .map((a) => `            <li class="artist-frame" data-tilt><span class="artist-frame__layer artist-frame__layer--3"></span><span class="artist-frame__layer artist-frame__layer--2"></span><span class="artist-frame__front"><span class="artist-frame__note mono">Portrait to be added</span><span class="artist-frame__name">${esc(a.name)}</span></span></li>`)
+      .join('\n');
+    return `          <ul class="artist-frames" aria-hidden="true">
+${frames}
+          </ul>
+          <ul class="artist-links" aria-label="O'Flow artists on Spotify">
 ${items}
           </ul>`;
   },
