@@ -613,3 +613,35 @@ em { color: var(--rust); font-style: normal; }
 .event-row--soon { grid-template-columns: 6rem 1fr; row-gap: 1.4rem; }
 .event-row--soon h3, .event-row--soon p, .event-row--soon .event-row__action { grid-column: 2; text-align: left; justify-self: start; }
 @media (max-width: 780px) { .event-row--soon { grid-template-columns: 3rem 1fr; } }
+
+/* STREET sequence. Defaults are the finished state (no JS / reduced motion); manifesto.js scrubs the variables. */
+.manifesto { --l1: 1; --l2: 1; --l3: 1; --st: 1; --tint: 0; --pc: 1; position: relative; overflow: clip; }
+.manifesto::before { content: ''; position: absolute; inset: 0; z-index: 0; background: var(--rust); opacity: var(--tint); pointer-events: none; }
+.manifesto::after { content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: .09; background-image: var(--grain), radial-gradient(circle at 1px 1px, rgba(11, 11, 10, .55) .9px, transparent 1.3px); background-size: 240px 240px, 7px 7px; -webkit-mask-image: radial-gradient(ellipse at 50% 50%, transparent 35%, #000 100%); mask-image: radial-gradient(ellipse at 50% 50%, transparent 35%, #000 100%); }
+.manifesto > .shell { z-index: 2; }
+.manifesto h2 .mf-line { display: block; white-space: nowrap; }
+.mf-line:not(.mf-line--street) { overflow: hidden; padding-block: .09em; margin-block: -.09em; }
+.mf-line--1 .mf-line__i { translate: 0 calc((1 - var(--l1)) * 118%); }
+.mf-line--2 .mf-line__i { translate: 0 calc((1 - var(--l2)) * 118%); }
+.mf-line--3 .mf-line__i { translate: 0 calc((1 - var(--l3)) * 118%); }
+.mf-line__i { display: block; will-change: translate; }
+.mf-line--street { position: relative; z-index: 3; }
+.mf-line--street .mf-line__i { transform-origin: 0 100%; scale: calc(1 + (1 - var(--st)) * 1.8); translate: calc((1 - var(--st)) * -4%) calc((1 - var(--st)) * -10%); opacity: clamp(0, calc(var(--st) * 4), 1); }
+.mf-line--street em { color: color-mix(in srgb, var(--paper) calc(var(--tint) * 110%), var(--rust)); }
+.manifesto__copy .ml { display: block; overflow: hidden; padding-block: .08em; margin-block: -.08em; }
+.manifesto__copy .ml + .ml { margin-top: calc(.3em - .08em); }
+.ml__i { display: block; --k: clamp(0, calc(var(--pc) * 7 - var(--n, 0) * .9), 1); translate: 0 calc((1 - var(--k)) * 118%); opacity: var(--k); }
+.mf-orbit { position: absolute; z-index: 1; top: 14%; right: 6%; width: clamp(9rem, 17vw, 16rem); height: auto; pointer-events: none; overflow: visible; --ra: 13deg; --rb: -8deg; --rc: 40deg; }
+.mf-ring ellipse { fill: none; stroke-width: 1.1; vector-effect: non-scaling-stroke; }
+.mf-ring--a { transform: rotate(var(--ra)); } .mf-ring--a ellipse { stroke: var(--rust); }
+.mf-ring--b { transform: rotate(var(--rb)); } .mf-ring--b ellipse { stroke: var(--ink); }
+.mf-ring--c { transform: rotate(var(--rc)); } .mf-ring--c ellipse { stroke: var(--rust); stroke-opacity: .55; stroke-dasharray: 3 5; }
+.mf-dot { fill: var(--rust); }
+
+/* Cinematic masked reveal into O'Flow */
+.mf-reveal { --rv: 1; position: relative; height: clamp(18rem, 56svh, 40rem); background: var(--ink); overflow: hidden; }
+.mf-reveal__mask { position: absolute; inset: 0; clip-path: inset(calc((1 - var(--rv)) * 38%) calc((1 - var(--rv)) * 46%)); }
+.mf-reveal__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 78% 46%; scale: calc(1 + (1 - var(--rv)) * .28); }
+.mf-reveal__mask::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(11, 11, 10, .55), transparent 30%, transparent 60%, var(--ink)); }
+.mf-reveal__tag { position: absolute; z-index: 2; left: max(1rem, 4vw); bottom: 1.6rem; color: var(--paper); font-size: .7rem; letter-spacing: .3em; text-transform: uppercase; }
+@media (max-width: 780px) { .mf-orbit { top: 6%; right: 3%; width: 7.5rem; opacity: .8; } }

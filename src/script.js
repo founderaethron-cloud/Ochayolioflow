@@ -8,6 +8,7 @@ import { initHero } from './js/hero.js';
 import { initHud } from './js/hud.js';
 import { initBlackout } from './js/blackout.js';
 import { initWater } from './js/water.js';
+import { initManifesto } from './js/manifesto.js';
 
 initNav();
 initReleases();
@@ -17,3 +18,4 @@ initHero();
 initHud();
 initBlackout();
 initWater();
+initManifesto();
