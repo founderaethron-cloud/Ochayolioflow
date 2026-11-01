@@ -19,7 +19,7 @@
     <link rel="canonical" href="https://ochayoli.in/" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="preload" href="/fonts/bebas-neue-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="stylesheet" href="/styles.ac40713064.css" />
+    <link rel="stylesheet" href="/styles.65ae2a99e2.css" />
     <script src="/boot.fc02b84c7d.js"></script>
     <script type="application/ld+json">
       {
@@ -97,9 +97,20 @@
 
       <section class="chapter" data-scene="Chapter one" aria-hidden="true">
         <div class="chapter__frame shell">
-          <p class="chapter__kicker mono" data-reveal="cut">Chapter one</p>
-          <p class="chapter__title" data-reveal="cut">Street<span>.</span></p>
-          <p class="chapter__sub serif" data-reveal="cut">Before there was a stage.</p>
+          <p class="chapter__kicker mono" data-reveal="cut">Ochayoli</p>
+          <p class="chapter__title chapter__title--tag" data-reveal="cut"><span class="chapter__line">The sound</span><span class="chapter__line">of what's next<i>.</i></span></p>
+          <div class="water" data-water data-reveal="cut" aria-hidden="true">
+            <p class="chapter__title chapter__title--tag water__reflect"><span class="chapter__line">The sound</span><span class="chapter__line">of what's next<i>.</i></span></p>
+            <span class="water__glint water__glint--a"></span><span class="water__glint water__glint--b"></span><span class="water__glint water__glint--c"></span>
+          </div>
+          <svg class="water__defs" width="0" height="0" focusable="false" aria-hidden="true">
+            <filter id="water-ripple" x="-5%" y="-5%" width="110%" height="110%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.0015 0.02" numOctaves="1" seed="7" result="n">
+                <animate attributeName="baseFrequency" dur="9s" values="0.0015 0.02;0.003 0.032;0.0015 0.02" repeatCount="indefinite" />
+              </feTurbulence>
+              <feDisplacementMap in="SourceGraphic" in2="n" scale="14" xChannelSelector="R" yChannelSelector="G" />
+            </filter>
+          </svg>
         </div>
       </section>
 
@@ -145,6 +156,29 @@
           </div>
           <span class="section-doodle section-doodle--arrows" aria-hidden="true"></span>
           <p class="section-intro mono">Selected tracks / catalogue in progress</p>
+          <figure class="vinyl-feature" data-reveal>
+            <svg class="vinyl-feature__disc" viewBox="0 0 400 400" role="img" aria-label="Ochayoli branded vinyl record, illustrative placeholder">
+              <defs>
+                <path id="vf-ring" d="M200 200 m-150 0 a150 150 0 1 1 300 0 a150 150 0 1 1 -300 0" />
+                <clipPath id="vf-label"><circle cx="200" cy="200" r="78" /></clipPath>
+              </defs>
+              <circle cx="200" cy="200" r="196" fill="#0b0b0a" stroke="#2c2a26" stroke-width="2" />
+              <g fill="none" stroke="#eee7d9">
+                <circle cx="200" cy="200" r="186" stroke-opacity=".1" /><circle cx="200" cy="200" r="176" stroke-opacity=".06" />
+                <circle cx="200" cy="200" r="166" stroke-opacity=".1" /><circle cx="200" cy="200" r="120" stroke-opacity=".08" />
+                <circle cx="200" cy="200" r="108" stroke-opacity=".1" /><circle cx="200" cy="200" r="96" stroke-opacity=".06" />
+              </g>
+              <path d="M200 8 A192 192 0 0 1 386 150" fill="none" stroke="#d8ff3f" stroke-width="3" stroke-linecap="round" />
+              <path d="M200 200 L392 128 A200 200 0 0 0 330 44 Z" fill="#eee7d9" fill-opacity=".05" />
+              <text class="vinyl-feature__ring"><textPath href="#vf-ring" startOffset="0">OCHAYOLI · O'FLOW · KERALA · ORIGINAL VOICES · THE SOUND OF WHAT'S NEXT · </textPath></text>
+              <circle cx="200" cy="200" r="78" fill="#c94a32" />
+              <g clip-path="url(#vf-label)"><rect x="191" y="100" width="18" height="200" fill="#0b0b0a" transform="rotate(28 200 200)" /></g>
+              <text class="vinyl-feature__word" x="200" y="184" text-anchor="middle">OCHAYOLI</text>
+              <text class="vinyl-feature__sub" x="200" y="236" text-anchor="middle">SIDE A · O'FLOW</text>
+              <circle cx="200" cy="200" r="5" fill="#eee7d9" />
+            </svg>
+            <figcaption class="vinyl-feature__cap mono">Ochayoli house pressing · illustrative placeholder, not a release</figcaption>
+          </figure>
           <div class="release-list" data-release-list>
           <article class="release-card" data-reveal id="release-thuvvak">
             <span class="release-card__disc"><svg viewBox="0 0 120 120" role="presentation" focusable="false" aria-hidden="true">
@@ -276,6 +310,6 @@
         </div>
       </div>
     </footer>
-    <script type="module" src="/script.db23139f60.js"></script>
+    <script type="module" src="/script.3f70a44ca1.js"></script>
   </body>
 </html>
