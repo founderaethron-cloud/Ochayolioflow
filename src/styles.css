@@ -455,6 +455,10 @@ em { color: var(--rust); font-style: normal; }
 .chapter__kicker { margin: 0; color: var(--muted); font-size: clamp(.72rem, 1.1vw, .95rem); letter-spacing: .5em; text-transform: uppercase; }
 .chapter__title { margin: 0; color: var(--paper); font: clamp(9rem, 30vw, 34rem)/.78 var(--font-display); letter-spacing: -.02em; text-transform: uppercase; }
 .chapter__title span { color: var(--rust); }
+.chapter__title--tag { display: grid; gap: .08em; font-size: clamp(3.6rem, 12.5vw, 15rem); line-height: .86; }
+.chapter__title--tag .chapter__line { display: block; color: var(--paper); }
+.chapter__title--tag .chapter__line:last-child { color: var(--lime); }
+.chapter__title--tag i { color: var(--rust); font-style: normal; }
 .chapter__sub { margin: 0; color: var(--lime); font-size: clamp(1.6rem, 3vw, 3.4rem); font-style: italic; line-height: 1; }
 .chapter::before, .chapter::after { content: ''; position: absolute; left: 0; right: 0; height: 9svh; background: #000; z-index: 2; }
 .chapter::before { top: 0; border-bottom: 1px solid rgba(238, 231, 217, .12); }
