@@ -1,1 +1,0 @@
-(function(){var e=document.documentElement;try{window.matchMedia("(prefers-reduced-motion: reduce)").matches||window.sessionStorage.getItem("ochayoli-intro")?e.classList.add("skip-intro"):window.sessionStorage.setItem("ochayoli-intro","1")}catch{}})();
