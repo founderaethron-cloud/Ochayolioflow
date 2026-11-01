@@ -582,3 +582,17 @@ em { color: var(--rust); font-style: normal; }
 .vinyl-feature__sub { fill: #eee7d9; font: 500 8.5px var(--font-mono); letter-spacing: .22em; }
 .vinyl-feature__cap { margin: 0; color: var(--muted); font-size: .66rem; letter-spacing: .09em; text-transform: uppercase; text-align: center; }
 @media (prefers-reduced-motion: reduce) { .vinyl-feature__disc { animation: none; } }
+
+/* Water: mirrored reflection of the tagline with a rippling displacement filter */
+.water { position: relative; width: 100%; margin-top: .12em; overflow: hidden; height: clamp(7rem, 20vw, 17rem); }
+.water::before { content: ''; position: absolute; left: 8%; right: 8%; top: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(238, 231, 217, .5), transparent); z-index: 2; }
+.water__defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+.water__reflect { transform: scaleY(-1); transform-origin: 50% 50%; opacity: .42; filter: url(#water-ripple); -webkit-mask-image: linear-gradient(to top, #000 0%, transparent 70%); mask-image: linear-gradient(to top, #000 0%, transparent 70%); will-change: transform; }
+.water__glint { position: absolute; height: 1px; background: linear-gradient(90deg, transparent, rgba(216, 255, 63, .7), transparent); opacity: 0; animation: glint 6s ease-in-out infinite; }
+.water__glint--a { top: 22%; left: 12%; width: 22%; }
+.water__glint--b { top: 46%; left: 58%; width: 28%; animation-delay: 2s; }
+.water__glint--c { top: 68%; left: 30%; width: 18%; animation-delay: 4s; }
+@keyframes glint { 0%, 100% { opacity: 0; transform: translateX(-12%); } 50% { opacity: .85; transform: translateX(12%); } }
+.water:not(.is-live) .water__glint { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) { .water__glint { animation: none; opacity: .35; } }
+@media (max-width: 780px) { .water__reflect { filter: none; } }

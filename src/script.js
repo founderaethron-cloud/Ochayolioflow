@@ -7,6 +7,7 @@ import { initReveal } from './js/reveal.js';
 import { initHero } from './js/hero.js';
 import { initHud } from './js/hud.js';
 import { initBlackout } from './js/blackout.js';
+import { initWater } from './js/water.js';
 
 initNav();
 initReleases();
@@ -15,3 +16,4 @@ initReveal();
 initHero();
 initHud();
 initBlackout();
+initWater();

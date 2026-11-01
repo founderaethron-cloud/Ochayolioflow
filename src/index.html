@@ -66,6 +66,18 @@
         <div class="chapter__frame shell">
           <p class="chapter__kicker mono" data-reveal="cut">Ochayoli</p>
           <p class="chapter__title chapter__title--tag" data-reveal="cut"><span class="chapter__line">The sound</span><span class="chapter__line">of what's next<i>.</i></span></p>
+          <div class="water" data-water data-reveal="cut" aria-hidden="true">
+            <p class="chapter__title chapter__title--tag water__reflect"><span class="chapter__line">The sound</span><span class="chapter__line">of what's next<i>.</i></span></p>
+            <span class="water__glint water__glint--a"></span><span class="water__glint water__glint--b"></span><span class="water__glint water__glint--c"></span>
+          </div>
+          <svg class="water__defs" width="0" height="0" focusable="false" aria-hidden="true">
+            <filter id="water-ripple" x="-5%" y="-5%" width="110%" height="110%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.0015 0.02" numOctaves="1" seed="7" result="n">
+                <animate attributeName="baseFrequency" dur="9s" values="0.0015 0.02;0.003 0.032;0.0015 0.02" repeatCount="indefinite" />
+              </feTurbulence>
+              <feDisplacementMap in="SourceGraphic" in2="n" scale="14" xChannelSelector="R" yChannelSelector="G" />
+            </filter>
+          </svg>
         </div>
       </section>
 
