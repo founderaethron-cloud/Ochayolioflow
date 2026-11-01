@@ -137,5 +137,19 @@
         "prefill": "Private or brand event enquiry.\nOccasion and city:\nDate:\nFormat:\nWhat you have in mind:"
       }
     ]
-  }
+  },
+  "artists": [
+    {
+      "name": "King Orekh",
+      "spotify": "https://open.spotify.com/artist/65uCxjiUkxVYRfRd4yZiJu"
+    },
+    {
+      "name": "Farsin Sidhu",
+      "spotify": "https://open.spotify.com/artist/37fg491wY02CS172sygshu"
+    },
+    {
+      "name": "VAnur",
+      "spotify": "https://open.spotify.com/artist/0FJuKBLYkobc20C8WcJHeh"
+    }
+  ]
 }

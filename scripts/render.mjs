@@ -100,6 +100,16 @@ ${options}
       </section>`;
   },
 
+  artists: (c) => {
+    if (!c.artists?.length) return '';
+    const items = c.artists
+      .map((a) => `            <li><a class="artist-link" href="${esc(a.spotify)}" rel="noopener" target="_blank"><span class="artist-link__name">${esc(a.name)}</span><span class="artist-link__go mono">Spotify <span aria-hidden="true">↗</span></span></a></li>`)
+      .join('\n');
+    return `          <ul class="artist-links" aria-label="O'Flow artists on Spotify">
+${items}
+          </ul>`;
+  },
+
   'topics': (c) =>
     c.contactTopics.map((t) => `<option value="${esc(t.value)}">${esc(t.label)}</option>`).join('')
 };

@@ -487,3 +487,11 @@ em { color: var(--rust); font-style: normal; }
   .home .hero__image { transform: none; will-change: auto; }
   .cine-curtain, .cine-bars { display: none; }
 }
+
+/* Artist links (Spotify) */
+.artist-links { display: grid; gap: 0; margin: 2.2rem 0 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+.artist-link { display: flex; align-items: baseline; justify-content: space-between; gap: 1.5rem; padding: 1rem 0; border-bottom: 1px solid var(--line); color: var(--paper); transition: color .2s ease, padding .2s ease; }
+.artist-link__name { font: clamp(2rem, 3.4vw, 3.6rem)/.9 var(--font-display); letter-spacing: .01em; text-transform: uppercase; }
+.artist-link__go { color: var(--muted); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; }
+.artist-link:hover, .artist-link:focus-visible { padding-left: .8rem; color: var(--lime); }
+.artist-link:hover .artist-link__go, .artist-link:focus-visible .artist-link__go { color: var(--lime); }

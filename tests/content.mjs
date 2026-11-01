@@ -22,6 +22,13 @@ function checkUrl(kind, url, where) {
 
 for (const [kind, url] of Object.entries(content.links)) checkUrl(kind, url, 'links');
 
+for (const artist of content.artists || []) {
+  assert.ok(artist.name, 'artist needs a name');
+  const u = new URL(artist.spotify);
+  assert.equal(u.hostname, 'open.spotify.com', `${artist.name}: not a Spotify link`);
+  assert.match(u.pathname, /^\/artist\/[A-Za-z0-9]{22}$/, `${artist.name}: not a Spotify artist URL`);
+}
+
 const ids = new Set();
 for (const release of content.releases) {
   assert.ok(release.id && release.title && release.artist, 'release needs id, title, artist');
@@ -43,6 +50,7 @@ const templates = await loadTemplates();
 const home = await renderHtml(await readFile('src/index.html', 'utf8'), content, templates);
 assert.doesNotMatch(home, /<!--@|\{\{/, 'unrendered marker left in index.html');
 assert.match(home, /THUVVAK/);
+assert.match(home, /class="artist-link"[^>]*href="https:\/\/open\.spotify\.com\/artist\//);
 assert.match(home, /<option value="booking">/);
 assert.match(home, /id="events"/);
 assert.match(home, /No dates yet/, 'empty state shows while there are no events');
