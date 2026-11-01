@@ -573,3 +573,12 @@ em { color: var(--rust); font-style: normal; }
 .disc__num { fill: #eee7d9; font: 500 9px var(--font-mono); letter-spacing: .06em; }
 @media (max-width: 780px) { .release-card__disc { max-width: 3rem; } }
 @media (prefers-reduced-motion: reduce) { .release-card:hover .release-card__disc svg, .release-card:focus-within .release-card__disc svg, .release-card.is-open .release-card__disc svg { animation: none; } }
+
+/* Branded vinyl feature */
+.vinyl-feature { display: grid; justify-items: center; gap: 1rem; margin: 2.5rem 0 3rem; }
+.vinyl-feature__disc { width: min(78vw, 26rem); height: auto; display: block; filter: drop-shadow(0 18px 30px rgba(0, 0, 0, .35)); animation: discSpin 28s linear infinite; }
+.vinyl-feature__ring { fill: #eee7d9; fill-opacity: .55; font: 500 11.5px var(--font-mono); letter-spacing: .32em; }
+.vinyl-feature__word { fill: #eee7d9; font: 400 34px var(--font-display); letter-spacing: .04em; }
+.vinyl-feature__sub { fill: #eee7d9; font: 500 8.5px var(--font-mono); letter-spacing: .22em; }
+.vinyl-feature__cap { margin: 0; color: var(--muted); font-size: .66rem; letter-spacing: .09em; text-transform: uppercase; text-align: center; }
+@media (prefers-reduced-motion: reduce) { .vinyl-feature__disc { animation: none; } }
