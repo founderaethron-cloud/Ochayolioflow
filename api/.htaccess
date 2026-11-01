@@ -1,0 +1,5 @@
+# Keep API endpoints out of search results.
+<IfModule mod_headers.c>
+  Header set X-Robots-Tag "noindex, nofollow"
+  Header set Cache-Control "no-store"
+</IfModule>

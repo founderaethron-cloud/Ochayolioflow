@@ -1,0 +1,2 @@
+# Server-side includes only. Nothing in lib/ is meant to be requested over HTTP.
+Require all denied
