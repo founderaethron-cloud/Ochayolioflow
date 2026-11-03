@@ -10,7 +10,7 @@ assert.match(contents['index.html'], /data-inquiry-form/);
 assert.match(contents['index.html'], /action="contact\.php"/);
 assert.match(contents['index.html'], /<!--@include header-->/);
 assert.match(contents['index.html'], /<!--@render releases-->/);
-assert.match(contents['index.html'], /Six artists, six directions/);
+assert.match(contents['index.html'], /Many artists, many directions/);
 assert.match(contents['index.html'], /application\/ld\+json/);
 assert.match(contents['script.js'], /initContactForm/);
 assert.match(await readFile('src/js/contact-form.js', 'utf8'), /fetch\(form\.action/);
