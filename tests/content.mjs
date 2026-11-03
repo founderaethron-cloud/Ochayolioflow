@@ -24,6 +24,7 @@ for (const [kind, url] of Object.entries(content.links)) checkUrl(kind, url, 'li
 
 for (const artist of content.artists || []) {
   assert.ok(artist.name, 'artist needs a name');
+  if (!artist.spotify) continue; // link may be pending
   const u = new URL(artist.spotify);
   assert.equal(u.hostname, 'open.spotify.com', `${artist.name}: not a Spotify link`);
   assert.match(u.pathname, /^\/artist\/[A-Za-z0-9]{22}$/, `${artist.name}: not a Spotify artist URL`);
@@ -54,6 +55,7 @@ assert.match(home, /release-card__disc/);
 assert.match(home, /data-blackout/);
 assert.match(home, /class="artist-link"[^>]*href="https:\/\/open\.spotify\.com\/artist\//);
 assert.match(home, /<option value="booking">/);
+assert.match(home, /Jarvie G/);
 assert.match(home, /id="events"/);
 assert.match(home, /Backwater Blackout/);
 assert.match(home, /Date to be announced/);

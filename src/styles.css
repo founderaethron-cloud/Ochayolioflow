@@ -662,7 +662,7 @@ em { color: var(--rust); font-style: normal; }
 .events > .shell { position: relative; z-index: 1; }
 
 /* O'Flow: portraits suspended in layered frames */
-.artist-frames { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(.9rem, 2.4vw, 2rem); margin: 2.4rem 0 0; padding: 0 0 1.4rem; list-style: none; }
+.artist-frames { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(.9rem, 2.4vw, 2rem); margin: 2.4rem 0 0; padding: 0 0 1.4rem; list-style: none; }
 .artist-frame { --px: 0; --py: 0; --rx: 0; --ry: 0; position: relative; aspect-ratio: 3 / 4; perspective: 800px; }
 .artist-frame__layer, .artist-frame__front { position: absolute; inset: 0; border: 1px solid rgba(238, 231, 217, .2); transition: transform .45s cubic-bezier(.2, .8, .2, 1); }
 .artist-frame__layer--3 { background: rgba(238, 231, 217, .03); transform: translate(calc(-9% + var(--px) * -18px), calc(7% + var(--py) * -18px)); }
@@ -687,7 +687,7 @@ em { color: var(--rust); font-style: normal; }
 .fc-r1 { --s: .5; stroke: #d8ff3f; } .fc-r2 { --s: .75; stroke: #c94a32; } .fc-r3 { --s: 1; } .fc-r4 { --s: 1.3; } .fc-r5 { --s: 1.7; } .fc-r6 { --s: 2.1; } .fc-r7 { --s: 2.6; } .fc-r8 { --s: 3.2; }
 .fc-mark { transform: scale(clamp(0, calc((var(--fc) - .5) * 2.2), 1)); }
 @media (prefers-reduced-motion: reduce) { .release-card__disc, .release-card__disc::after, .artist-frame__layer, .artist-frame__front, .store-product-card__visual { transition: none; } }
-@media (max-width: 780px) { .artist-frames { gap: .6rem; } .artist-frame__front { padding: .55rem; } }
+@media (max-width: 780px) { .artist-frames { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.2rem .9rem; } .artist-frame__front { padding: .55rem; } }
 .site-footer__field { -webkit-mask-image: linear-gradient(to bottom, transparent, #000 28%, #000 72%, transparent); mask-image: linear-gradient(to bottom, transparent, #000 28%, #000 72%, transparent); }
 
 /* Tagline reflection: the wordmark, mirrored as an outlined, softly refracted trace */
@@ -696,3 +696,6 @@ em { color: var(--rust); font-style: normal; }
 .reflect__word { margin: 0; text-align: center; transform: scaleY(-1); font: clamp(5rem, 17vw, 19rem)/.8 var(--font-display); letter-spacing: .02em; text-transform: uppercase; color: transparent; background: linear-gradient(to top, rgba(216, 255, 63, .4), rgba(216, 255, 63, 0) 75%); -webkit-background-clip: text; background-clip: text; -webkit-text-stroke: 1.5px rgba(238, 231, 217, .5); filter: url(#refract-soft); -webkit-mask-image: linear-gradient(to top, #000 0%, transparent 88%); mask-image: linear-gradient(to top, #000 0%, transparent 88%); }
 .reflect__word i { font-style: normal; -webkit-text-stroke-color: rgba(201, 74, 50, .8); }
 @media (max-width: 780px) { .reflect__word { filter: none; } }
+.artist-link--pending { cursor: default; }
+.artist-link--pending:hover { padding-left: 0; color: var(--paper); }
+.artist-link--pending .artist-link__go { text-transform: uppercase; }

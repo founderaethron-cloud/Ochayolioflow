@@ -174,7 +174,11 @@ ${options}
   artists: (c) => {
     if (!c.artists?.length) return '';
     const items = c.artists
-      .map((a) => `            <li><a class="artist-link" href="${esc(a.spotify)}" rel="noopener" target="_blank"><span class="artist-link__name">${esc(a.name)}</span><span class="artist-link__go mono">Spotify <span aria-hidden="true">↗</span></span></a></li>`)
+      .map((a) =>
+        a.spotify
+          ? `            <li><a class="artist-link" href="${esc(a.spotify)}" rel="noopener" target="_blank"><span class="artist-link__name">${esc(a.name)}</span><span class="artist-link__go mono">Spotify <span aria-hidden="true">↗</span></span></a></li>`
+          : `            <li><span class="artist-link artist-link--pending"><span class="artist-link__name">${esc(a.name)}</span><span class="artist-link__go mono">Spotify link to be added</span></span></li>`
+      )
       .join('\n');
     const frames = c.artists
       .map((a) => `            <li class="artist-frame" data-tilt><span class="artist-frame__layer artist-frame__layer--3"></span><span class="artist-frame__layer artist-frame__layer--2"></span><span class="artist-frame__front"><span class="artist-frame__note mono">Portrait to be added</span><span class="artist-frame__name">${esc(a.name)}</span></span></li>`)
